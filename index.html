@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="UTF-8" />
   <title>Ghulam Mustafa | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="description" content="Ghulam Mustafa - Computing Systems student in London. Java, MySQL, JDBC projects with documented repositories and walkthroughs." />
+  <meta property="og:title" content="Ghulam Mustafa | Portfolio" />
+  <meta property="og:description" content="Java and SQL projects: Job Application Tracker (JDBC + MySQL), Car Service Database System, Work Hours Tracker." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ghulam-mustafa-ms.vercel.app/" />
 
   <style>
     :root {
       --bg-dark: #050816;
       --bg-elevated: #0a1024;
       --accent: #4f46e5;
-      --accent-soft: rgba(79, 70, 229, 0.15);
       --accent-2: #22c55e;
       --text-main: #f9fafb;
       --text-muted: #9ca3af;
@@ -22,15 +27,9 @@
       --max-width: 1120px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Segoe UI", sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
       background: radial-gradient(circle at top, #111827 0, #020617 40%, #020617 100%);
       color: var(--text-main);
       line-height: 1.6;
@@ -38,48 +37,17 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #020617; }
+    ::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 999px; }
 
-    /* Scrollbar (nice on desktop, ignored on mobile) */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #020617;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #4b5563;
-      border-radius: 999px;
-    }
+    .page { min-height: 100vh; display: flex; flex-direction: column; }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 5rem 0; position: relative; overflow: hidden; }
 
-    /* Layout */
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    section {
-      padding: 5rem 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Sticky Navbar */
     header {
       position: sticky;
       top: 0;
@@ -101,11 +69,7 @@
       height: 4.25rem;
     }
 
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
+    .nav-left { display: flex; align-items: center; gap: 0.75rem; }
 
     .nav-logo {
       width: 34px;
@@ -120,19 +84,9 @@
       box-shadow: 0 12px 25px rgba(79, 70, 229, 0.7);
     }
 
-    .nav-brand-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .nav-brand-text span:first-child {
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-    .nav-brand-text span:last-child {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
+    .nav-brand-text { display: flex; flex-direction: column; }
+    .nav-brand-text span:first-child { font-weight: 600; font-size: 0.95rem; }
+    .nav-brand-text span:last-child { font-size: 0.8rem; color: var(--text-muted); }
 
     .nav-links {
       display: flex;
@@ -160,9 +114,7 @@
       transition: width var(--transition-fast);
     }
 
-    .nav-links a:hover::after {
-      width: 100%;
-    }
+    .nav-links a:hover::after { width: 100%; }
 
     .nav-cta {
       padding: 0.45rem 0.95rem;
@@ -171,14 +123,10 @@
       font-size: 0.82rem;
       display: flex;
       align-items: center;
-      gap: 0.4rem;
       cursor: pointer;
-      transition: background var(--transition-fast), border var(--transition-fast),
-        transform var(--transition-fast);
-    }
-
-    .nav-cta span {
-      font-size: 0.95rem;
+      transition: background var(--transition-fast), transform var(--transition-fast);
+      background: transparent;
+      color: #e5e7eb;
     }
 
     .nav-cta:hover {
@@ -186,7 +134,6 @@
       transform: translateY(-1px);
     }
 
-    /* Mobile nav toggle */
     .nav-toggle {
       display: none;
       width: 2.25rem;
@@ -196,6 +143,7 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      background: transparent;
     }
 
     .nav-toggle-line {
@@ -214,27 +162,14 @@
       height: 2px;
       border-radius: 999px;
       background: #e5e7eb;
-      transition: transform var(--transition-fast), top var(--transition-fast),
-        opacity var(--transition-fast);
+      transition: transform var(--transition-fast), top var(--transition-fast), opacity var(--transition-fast);
     }
-    .nav-toggle-line::before {
-      top: -5px;
-    }
-    .nav-toggle-line::after {
-      top: 5px;
-    }
+    .nav-toggle-line::before { top: -5px; }
+    .nav-toggle-line::after { top: 5px; }
 
-    .nav-toggle.open .nav-toggle-line {
-      background: transparent;
-    }
-    .nav-toggle.open .nav-toggle-line::before {
-      top: 0;
-      transform: rotate(45deg);
-    }
-    .nav-toggle.open .nav-toggle-line::after {
-      top: 0;
-      transform: rotate(-45deg);
-    }
+    .nav-toggle.open .nav-toggle-line { background: transparent; }
+    .nav-toggle.open .nav-toggle-line::before { top: 0; transform: rotate(45deg); }
+    .nav-toggle.open .nav-toggle-line::after { top: 0; transform: rotate(-45deg); }
 
     .nav-links-mobile {
       display: none;
@@ -243,25 +178,18 @@
       padding: 0.75rem 0 1.2rem;
       font-size: 0.95rem;
     }
+    .nav-links-mobile a { color: #e5e7eb; cursor: pointer; }
 
-    .nav-links-mobile a {
-      color: #e5e7eb;
-    }
+    /* FIX: make mobile nav actually show when toggled */
+    .nav-links-mobile.nav-mobile-visible { display: flex; }
 
-    .nav-mobile-visible {
-      display: flex;
-    }
-
-    /* Hero */
-    .hero {
-      padding-top: 3.5rem;
-    }
+    .hero { padding-top: 3.5rem; }
 
     .hero-inner {
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
-      gap: 3rem;
-      align-items: center;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2.2rem;
+      align-items: start;
     }
 
     .hero-kicker {
@@ -273,7 +201,7 @@
       border-radius: 999px;
       border: 1px solid rgba(148, 163, 184, 0.5);
       color: var(--text-muted);
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.1rem;
       background: radial-gradient(circle at 0 0, rgba(79, 70, 229, 0.25), transparent);
     }
 
@@ -286,10 +214,10 @@
     }
 
     .hero-title {
-      font-size: clamp(2.4rem, 3.3vw + 1.2rem, 3.4rem);
+      font-size: clamp(2.2rem, 3.2vw + 1rem, 3.2rem);
       font-weight: 700;
       letter-spacing: -0.03em;
-      margin-bottom: 0.7rem;
+      margin-bottom: 0.6rem;
     }
     .hero-title span {
       background: linear-gradient(to right, #e5e7eb, #a5b4fc);
@@ -325,15 +253,15 @@
     .hero-subtitle {
       color: var(--text-muted);
       font-size: 0.97rem;
-      max-width: 32rem;
-      margin-bottom: 1.6rem;
+      max-width: 42rem;
+      margin-bottom: 1.2rem;
     }
 
     .hero-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      margin-bottom: 1.9rem;
+      margin-bottom: 1.2rem;
     }
 
     .hero-tag {
@@ -349,10 +277,10 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.8rem;
+      margin-top: 0.2rem;
     }
 
-    .btn-primary,
-    .btn-ghost {
+    .btn-primary, .btn-ghost {
       padding: 0.6rem 1.2rem;
       border-radius: 999px;
       font-size: 0.9rem;
@@ -360,10 +288,10 @@
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
       transition: transform var(--transition-fast), box-shadow var(--transition-fast),
         background var(--transition-fast), border var(--transition-fast);
       text-decoration: none;
+      white-space: nowrap;
     }
 
     .btn-primary {
@@ -388,184 +316,15 @@
       transform: translateY(-2px);
     }
 
-    /* Hero Right: 3D Cube + floating card */
-    .hero-right {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      min-height: 260px;
-    }
+    .section-header { margin-bottom: 2.5rem; }
+    .section-kicker { font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase; color: #6b7280; margin-bottom: 0.3rem; }
+    .section-title { font-size: 1.6rem; font-weight: 600; letter-spacing: -0.03em; }
 
-    .hero-orbit {
-      position: absolute;
-      inset: 0;
-      border-radius: 999px;
-      border: 1px dashed rgba(79, 70, 229, 0.3);
-      filter: blur(0.3px);
-    }
+    .about-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr); gap: 2.6rem; }
+    .about-text { font-size: 0.96rem; color: var(--text-muted); }
+    .about-text p + p { margin-top: 0.7rem; }
 
-    .cube-scene {
-      width: 220px;
-      height: 220px;
-      perspective: 700px;
-      position: relative;
-    }
-
-    .cube {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      transform-style: preserve-3d;
-      animation: spinCube 16s linear infinite;
-    }
-
-    .cube-face {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 26px;
-      border: 1px solid rgba(148, 163, 184, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      text-align: center;
-      padding: 1rem;
-      box-shadow: 0 16px 45px rgba(15, 23, 42, 0.8);
-      background: radial-gradient(circle at 0 0, #111827, #020617);
-    }
-
-    .cube-face span {
-      background: linear-gradient(to bottom right, #a5b4fc, #22c55e);
-      -webkit-background-clip: text;
-      color: transparent;
-      font-weight: 500;
-    }
-
-    .cube-face:nth-child(1) {
-      transform: rotateY(0deg) translateZ(110px);
-    }
-
-    .cube-face:nth-child(2) {
-      transform: rotateY(90deg) translateZ(110px);
-    }
-
-    .cube-face:nth-child(3) {
-      transform: rotateY(180deg) translateZ(110px);
-    }
-
-    .cube-face:nth-child(4) {
-      transform: rotateY(-90deg) translateZ(110px);
-    }
-
-    .cube-face:nth-child(5) {
-      transform: rotateX(90deg) translateZ(110px);
-    }
-
-    .cube-face:nth-child(6) {
-      transform: rotateX(-90deg) translateZ(110px);
-    }
-
-    @keyframes spinCube {
-      0% {
-        transform: rotateX(-18deg) rotateY(0deg);
-      }
-      50% {
-        transform: rotateX(18deg) rotateY(180deg);
-      }
-      100% {
-        transform: rotateX(-18deg) rotateY(360deg);
-      }
-    }
-
-    .hero-float-card {
-      position: absolute;
-      bottom: 10px;
-      right: -8px;
-      padding: 0.6rem 0.8rem;
-      border-radius: 16px;
-      background: rgba(15, 23, 42, 0.96);
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      font-size: 0.75rem;
-      animation: floatCard 4s ease-in-out infinite alternate;
-    }
-
-    .hero-float-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-      background: var(--accent-2);
-      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.35);
-    }
-
-    .hero-float-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .hero-float-text span:first-child {
-      color: #e5e7eb;
-    }
-
-    .hero-float-text span:last-child {
-      color: var(--text-muted);
-      font-size: 0.7rem;
-    }
-
-    @keyframes floatCard {
-      0% {
-        transform: translateY(0) translateX(0);
-      }
-      100% {
-        transform: translateY(-8px) translateX(-4px);
-      }
-    }
-
-    /* Section Titles */
-    .section-header {
-      margin-bottom: 2.5rem;
-    }
-    .section-kicker {
-      font-size: 0.75rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: #6b7280;
-      margin-bottom: 0.3rem;
-    }
-    .section-title {
-      font-size: 1.6rem;
-      font-weight: 600;
-      letter-spacing: -0.03em;
-    }
-
-    /* About */
-    .about-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
-      gap: 2.6rem;
-    }
-
-    .about-text {
-      font-size: 0.96rem;
-      color: var(--text-muted);
-    }
-
-    .about-text p + p {
-      margin-top: 0.7rem;
-    }
-
-    .about-highlights {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.9rem;
-      margin-top: 1.8rem;
-    }
-
+    .about-highlights { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.9rem; margin-top: 1.8rem; }
     .about-highlight {
       padding: 0.85rem 0.9rem;
       border-radius: 16px;
@@ -576,15 +335,8 @@
       flex-direction: column;
       gap: 0.15rem;
     }
-
-    .about-highlight span:first-child {
-      font-size: 1.1rem;
-      font-weight: 600;
-    }
-
-    .about-highlight span:last-child {
-      color: var(--text-muted);
-    }
+    .about-highlight span:first-child { font-size: 1.1rem; font-weight: 600; }
+    .about-highlight span:last-child { color: var(--text-muted); }
 
     .about-card {
       border-radius: 18px;
@@ -595,42 +347,13 @@
       font-size: 0.85rem;
     }
 
-    .about-card-header {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 0.7rem;
-      align-items: center;
-    }
+    .about-card-header { display: flex; justify-content: space-between; margin-bottom: 0.7rem; align-items: center; }
+    .about-pill { font-size: 0.7rem; padding: 0.18rem 0.6rem; border-radius: 999px; border: 1px solid rgba(148, 163, 184, 0.5); color: var(--text-muted); }
+    .about-card-title { font-weight: 600; font-size: 0.88rem; }
+    .about-card-body { color: var(--text-muted); margin-bottom: 0.8rem; }
+    .about-card-meta { font-size: 0.8rem; color: #9ca3af; }
 
-    .about-pill {
-      font-size: 0.7rem;
-      padding: 0.18rem 0.6rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      color: var(--text-muted);
-    }
-
-    .about-card-title {
-      font-weight: 600;
-      font-size: 0.88rem;
-    }
-
-    .about-card-body {
-      color: var(--text-muted);
-      margin-bottom: 0.8rem;
-    }
-
-    .about-card-meta {
-      font-size: 0.8rem;
-      color: #9ca3af;
-    }
-
-    /* Skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-    }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
 
     .skill-card {
       border-radius: 16px;
@@ -647,25 +370,10 @@
       flex-direction: column;
       gap: 0.4rem;
     }
+    .skill-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3rem; }
+    .skill-card-title { font-weight: 600; font-size: 0.88rem; }
 
-    .skill-card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.3rem;
-    }
-
-    .skill-card-title {
-      font-weight: 600;
-      font-size: 0.88rem;
-    }
-
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-    }
-
+    .chip-row { display: flex; flex-wrap: wrap; gap: 0.35rem; }
     .chip {
       font-size: 0.75rem;
       padding: 0.18rem 0.55rem;
@@ -674,7 +382,6 @@
       color: #cbd5f5;
     }
 
-    /* Projects */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -697,7 +404,7 @@
       gap: 0.6rem;
       transform: translateY(0);
       transition: transform var(--transition-med), box-shadow var(--transition-med),
-        border var(--transition-med), background var(--transition-med);
+        border var(--transition-med);
       position: relative;
       overflow: hidden;
     }
@@ -718,21 +425,10 @@
       border-color: rgba(129, 140, 248, 0.9);
     }
 
-    .project-card:hover::before {
-      opacity: 1;
-    }
+    .project-card:hover::before { opacity: 1; }
 
-    .project-top-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 0.5rem;
-      align-items: baseline;
-    }
-
-    .project-title {
-      font-size: 1rem;
-      font-weight: 600;
-    }
+    .project-top-row { display: flex; justify-content: space-between; gap: 0.5rem; align-items: baseline; }
+    .project-title { font-size: 1rem; font-weight: 600; }
 
     .project-tag {
       font-size: 0.7rem;
@@ -741,9 +437,10 @@
       background: rgba(15, 23, 42, 0.8);
       border: 1px solid rgba(148, 163, 184, 0.7);
       color: #cbd5f5;
+      white-space: nowrap;
     }
 
-    .project-description {
+    .project-summary {
       font-size: 0.9rem;
       color: var(--text-muted);
     }
@@ -763,28 +460,33 @@
       border: 1px solid rgba(148, 163, 184, 0.5);
     }
 
+    .project-bullets {
+      margin-top: 0.2rem;
+      margin-left: 1.1rem;
+      color: var(--text-muted);
+      font-size: 0.86rem;
+    }
+
     .project-links {
       margin-top: 0.2rem;
       display: flex;
-      gap: 0.7rem;
-      font-size: 0.78rem;
+      gap: 0.9rem;
+      font-size: 0.82rem;
+      flex-wrap: wrap;
     }
 
     .project-links a {
       display: inline-flex;
       align-items: center;
-      gap: 0.25rem;
       color: #cbd5f5;
-      opacity: 0.9;
+      opacity: 0.95;
       transition: opacity var(--transition-fast), transform var(--transition-fast);
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
-    .project-links a:hover {
-      opacity: 1;
-      transform: translateY(-1px);
-    }
+    .project-links a:hover { opacity: 1; transform: translateY(-1px); }
 
-    /* Experience */
     .experience-grid {
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
@@ -797,11 +499,7 @@
       padding-left: 1.3rem;
     }
 
-    .timeline-item {
-      position: relative;
-      margin-bottom: 1.5rem;
-    }
-
+    .timeline-item { position: relative; margin-bottom: 1.5rem; }
     .timeline-dot {
       position: absolute;
       left: -1.65rem;
@@ -813,21 +511,9 @@
       box-shadow: 0 0 0 6px rgba(79, 70, 229, 0.3);
     }
 
-    .timeline-role {
-      font-weight: 600;
-      font-size: 0.96rem;
-    }
-
-    .timeline-meta {
-      font-size: 0.8rem;
-      color: #9ca3af;
-      margin-bottom: 0.45rem;
-    }
-
-    .timeline-body {
-      font-size: 0.86rem;
-      color: var(--text-muted);
-    }
+    .timeline-role { font-weight: 600; font-size: 0.96rem; }
+    .timeline-meta { font-size: 0.8rem; color: #9ca3af; margin-bottom: 0.45rem; }
+    .timeline-body { font-size: 0.86rem; color: var(--text-muted); }
 
     .xp-card {
       border-radius: 18px;
@@ -839,20 +525,9 @@
       box-shadow: var(--shadow-soft);
     }
 
-    .xp-card-title {
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-    }
+    .xp-card-title { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .xp-chip-row { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.6rem; }
 
-    .xp-chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin-top: 0.6rem;
-    }
-
-    /* Contact */
     .contact-grid {
       display: grid;
       grid-template-columns: minmax(0, 2.1fr) minmax(0, 2.2fr);
@@ -869,49 +544,24 @@
       font-size: 0.88rem;
     }
 
-    .contact-row {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      margin-top: 0.6rem;
-    }
-
-    .contact-item-label {
-      font-size: 0.8rem;
-      color: #9ca3af;
-    }
+    .contact-row { display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.6rem; }
+    .contact-item-label { font-size: 0.8rem; color: #9ca3af; }
 
     .contact-link {
       font-size: 0.9rem;
       display: inline-flex;
       align-items: center;
-      gap: 0.3rem;
       color: #e5e7eb;
+      word-break: break-word;
     }
+    .contact-link:hover { text-decoration: underline; }
 
-    .contact-link:hover {
-      text-decoration: underline;
-    }
+    .contact-form { display: grid; gap: 0.8rem; font-size: 0.85rem; }
 
-    .contact-form {
-      display: grid;
-      gap: 0.8rem;
-      font-size: 0.85rem;
-    }
+    .form-field { display: flex; flex-direction: column; gap: 0.25rem; }
+    .form-label { font-size: 0.8rem; color: #9ca3af; }
 
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-    }
-
-    .form-label {
-      font-size: 0.8rem;
-      color: #9ca3af;
-    }
-
-    .form-input,
-    .form-textarea {
+    .form-input, .form-textarea {
       border-radius: 12px;
       border: 1px solid rgba(148, 163, 184, 0.55);
       background: rgba(15, 23, 42, 0.95);
@@ -923,41 +573,25 @@
         background var(--transition-fast);
     }
 
-    .form-input:focus,
-    .form-textarea:focus {
+    .form-input:focus, .form-textarea:focus {
       border-color: rgba(129, 140, 248, 0.9);
       box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.7);
       background: rgba(15, 23, 42, 1);
     }
 
-    .form-textarea {
-      min-height: 130px;
-      resize: vertical;
-    }
+    .form-textarea { min-height: 130px; resize: vertical; }
+    .form-submit { margin-top: 0.4rem; width: fit-content; }
 
-    .form-helper {
-      font-size: 0.78rem;
-      color: #6b7280;
-    }
-
-    .form-submit {
-      margin-top: 0.4rem;
-      width: fit-content;
-    }
-
-    /* Scroll reveal */
     .reveal {
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    /* FIX: if JS fails, don't hide the whole page */
+    .no-js .reveal { opacity: 1; transform: none; }
 
-    /* Footer */
     footer {
       border-top: 1px solid rgba(30, 64, 175, 0.6);
       padding: 1.2rem 0 1.4rem;
@@ -975,100 +609,42 @@
       flex-wrap: wrap;
     }
 
-    .footer-links {
-      display: flex;
-      gap: 0.8rem;
-    }
+    .footer-links { display: flex; gap: 0.8rem; }
+    .footer-links a { color: #9ca3af; text-decoration: none; }
+    .footer-links a:hover { text-decoration: underline; }
 
-    .footer-links a {
-      color: #9ca3af;
-      text-decoration: none;
-    }
-
-    .footer-links a:hover {
-      text-decoration: underline;
-    }
-
-    /* Responsive */
     @media (max-width: 900px) {
-      .hero-inner {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .hero-right {
-        order: -1;
-        margin-bottom: 1.5rem;
-      }
-
-      .about-grid,
-      .experience-grid,
-      .contact-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .projects-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .skills-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .about-highlights {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
+      .about-grid, .experience-grid, .contact-grid { grid-template-columns: minmax(0, 1fr); }
+      .projects-grid { grid-template-columns: minmax(0, 1fr); }
+      .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .about-highlights { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
 
     @media (max-width: 720px) {
-      .nav-links {
-        display: none;
-      }
-
-      .nav-toggle {
-        display: inline-flex;
-      }
-
-      .hero {
-        padding-top: 2.3rem;
-      }
-
-      .about-highlights {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .skills-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .hero-typed {
-        white-space: normal;
-      }
+      .nav-links { display: none; }
+      .nav-toggle { display: inline-flex; }
+      .hero { padding-top: 2.3rem; }
+      .about-highlights { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .skills-grid { grid-template-columns: minmax(0, 1fr); }
+      .hero-typed { white-space: normal; }
     }
 
     @media (max-width: 520px) {
-      section {
-        padding: 3.5rem 0;
-      }
-
-      .about-highlights {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .hero-float-card {
-        display: none;
-      }
+      section { padding: 3.5rem 0; }
+      .about-highlights { grid-template-columns: minmax(0, 1fr); }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .btn-primary, .btn-ghost { justify-content: center; }
     }
   </style>
+
+  <script>
+    // FIX: remove no-js class ASAP so animations/IO can work
+    document.documentElement.classList.remove('no-js');
+  </script>
 </head>
 
 <body>
   <div class="page">
-    <!-- NAVBAR -->
     <header>
       <div class="container">
         <nav class="nav">
@@ -1076,7 +652,7 @@
             <div class="nav-logo">GM</div>
             <div class="nav-brand-text">
               <span>Ghulam Mustafa</span>
-              <span>Computing Systems @ Ulster</span>
+              <span>Java and SQL projects</span>
             </div>
           </div>
 
@@ -1087,12 +663,10 @@
             <a data-scroll="#projects">Projects</a>
             <a data-scroll="#experience">Experience</a>
             <a data-scroll="#contact">Contact</a>
-            <button class="nav-cta" data-scroll="#contact" type="button">
-              <span>Let’s talk</span> ✉️
-            </button>
+            <button class="nav-cta" data-scroll="#contact" type="button">Contact</button>
           </div>
 
-          <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle navigation">
+          <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinksMobile">
             <div class="nav-toggle-line"></div>
           </button>
         </nav>
@@ -1108,7 +682,6 @@
       </div>
     </header>
 
-    <!-- HERO -->
     <main>
       <section id="home" class="hero">
         <div class="container">
@@ -1116,118 +689,75 @@
             <div>
               <div class="hero-kicker">
                 <div class="hero-kicker-dot"></div>
-                <span>Open to tech roles & internships</span>
+                <span>Open to entry-level software and IT roles</span>
               </div>
 
               <h1 class="hero-title">
-                Hi, I'm <span>Ghulam Mustafa</span> —
-                building data-driven & AI-powered solutions.
+                Hi, I'm <span>Ghulam Mustafa</span> — building Java and SQL-based systems.
               </h1>
 
               <div class="hero-typed-wrapper">
-                <span class="hero-typed-label">FOCUS</span>
+                <span class="hero-typed-label">Focus</span>
                 <span class="hero-typed" id="typedText"></span>
               </div>
 
               <p class="hero-subtitle">
-                First-year BSc (Hons) Computing Systems student at Ulster University,
-                with a strong interest in <strong>databases</strong>, <strong>data analytics</strong>,
-                and <strong>AI-powered tools</strong> that solve real problems.
+                Computing Systems student in London with hands-on experience building database-driven applications using
+                Java, MySQL, and JDBC. I focus on backend logic, clean data models, and practical problem solving.
               </p>
 
               <div class="hero-tags">
-                <span class="hero-tag">Databases & SQL</span>
-                <span class="hero-tag">Python & Java</span>
-                <span class="hero-tag">Data Analytics</span>
-                <span class="hero-tag">AI & Machine Learning</span>
-                <span class="hero-tag">Cloud (AWS)</span>
+                <span class="hero-tag">Java</span>
+                <span class="hero-tag">SQL</span>
+                <span class="hero-tag">MySQL</span>
+                <span class="hero-tag">JDBC</span>
+                <span class="hero-tag">Git</span>
               </div>
 
               <div class="hero-actions">
-                <a class="btn-primary" href="Ghulam_Mustafa_CV.pdf" download>
-                  📄 Download CV
-                </a>
-                <button class="btn-ghost" type="button" data-scroll="#projects">
-                  View projects →
-                </button>
-              </div>
-            </div>
-
-            <div class="hero-right">
-              <div class="hero-orbit"></div>
-              <div class="cube-scene">
-                <div class="cube">
-                  <div class="cube-face">
-                    <span>SQL-driven<br />backends & data models</span>
-                  </div>
-                  <div class="cube-face">
-                    <span>Python tools for<br />automation & analysis</span>
-                  </div>
-                  <div class="cube-face">
-                    <span>AI-powered ideas<br />for smarter systems</span>
-                  </div>
-                  <div class="cube-face">
-                    <span>Clean, pragmatic<br />problem solving</span>
-                  </div>
-                  <div class="cube-face">
-                    <span>Strong foundations in<br />CS & software</span>
-                  </div>
-                  <div class="cube-face">
-                    <span>Curious, reliable &<br />always learning</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="hero-float-card">
-                <div class="hero-float-dot"></div>
-                <div class="hero-float-text">
-                  <span>Actively learning & building</span>
-                  <span>Car Service DB · Java Tracker · AI ideas</span>
-                </div>
+                <a class="btn-primary" href="https://github.com/GhulamMustafa-MS" target="_blank" rel="noreferrer">GitHub</a>
+                <a class="btn-ghost" href="Ghulam_Mustafa_CV.pdf" download>Download CV</a>
+                <a class="btn-ghost" href="https://linkedin.com/in/ghulam-mustafa-41807b281" target="_blank" rel="noreferrer">LinkedIn</a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ABOUT -->
       <section id="about">
         <div class="container reveal">
           <div class="section-header">
-            <div class="section-kicker">ABOUT</div>
-            <h2 class="section-title">Who I am</h2>
+            <div class="section-kicker">About</div>
+            <h2 class="section-title">About me</h2>
           </div>
 
           <div class="about-grid">
             <div class="about-text">
               <p>
-                I'm an ambitious Computing Systems student based in Harrow Wealdstone, London.
-                I enjoy turning ideas into working systems — whether that's a relational database,
-                a Python script, or a small AI-powered prototype.
+                I am a Computing Systems student with hands-on experience developing Java applications and relational
+                database systems. I build practical tools backed by clear data models, maintainable code, and clean documentation.
               </p>
               <p>
-                My current focus is on <strong>databases</strong>, <strong>data analytics</strong>,
-                and <strong>machine learning</strong> foundations. I like designing efficient schemas,
-                writing clear SQL, and building tools that actually make someone's life easier.
+                Recent work includes a Java job application tracker (JDBC + MySQL) and a relational database system for
+                a car service business, with schema scripts, business queries, and an ER diagram published on GitHub.
               </p>
               <p>
-                Alongside my degree at Ulster University, I’m building projects, learning modern
-                technologies, and developing strong teamwork and communication skills through both
-                academic and work experience.
+                I am currently seeking entry-level opportunities in software development, IT support, or technical roles
+                where I can apply my skills while continuing to grow in a professional environment.
               </p>
 
               <div class="about-highlights">
                 <div class="about-highlight">
-                  <span>1st Year</span>
-                  <span>BSc (Hons) Computing Systems at Ulster University</span>
+                  <span>Java</span>
+                  <span>OOP, CLI apps, JDBC</span>
                 </div>
                 <div class="about-highlight">
-                  <span>Projects</span>
-                  <span>Databases · Java tools · Python utilities</span>
+                  <span>SQL</span>
+                  <span>Schema design, joins, reporting</span>
                 </div>
                 <div class="about-highlight">
-                  <span>MOS</span>
-                  <span>Microsoft Office Specialist: Word Associate</span>
+                  <span>Git</span>
+                  <span>Version control and workflow</span>
                 </div>
               </div>
             </div>
@@ -1236,57 +766,80 @@
               <div class="about-card-header">
                 <div>
                   <div class="about-card-title">Education</div>
-                  <div class="about-card-meta">
-                    BSc (Hons) Computing Systems — Ulster University
-                  </div>
+                  <div class="about-card-meta">BSc (Hons) Computing Systems — Ulster University</div>
                 </div>
-                <div class="about-pill">First-year undergraduate</div>
+                <div class="about-pill">London, UK</div>
               </div>
+
               <div class="about-card-body">
-                <strong>Relevant Modules:</strong> Databases, AI Fundamentals, Programming,
-                Data Structures, Web Development, Software Engineering.
+                <strong>Relevant areas:</strong> Programming, Database Systems, Software Development, Web Technologies.
               </div>
 
               <div class="about-card-header" style="margin-top:0.8rem;">
                 <div>
-                  <div class="about-card-title">Professional summary</div>
+                  <div class="about-card-title">What I bring</div>
                 </div>
               </div>
+
               <div class="about-card-body">
-                Ambitious and curious, with experience managing projects and teams,
-                and a growing track record of building efficient systems. Eager to
-                contribute to data-driven and AI-focused roles where I can learn,
-                collaborate, and have a real impact.
+                Reliability, clear communication, and structured problem solving. I document my work, explain design
+                choices, and aim to ship complete, usable systems.
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- SKILLS -->
       <section id="skills">
         <div class="container reveal">
           <div class="section-header">
-            <div class="section-kicker">SKILLS</div>
-            <h2 class="section-title">Technologies & focus areas</h2>
+            <div class="section-kicker">Skills</div>
+            <h2 class="section-title">Skills and tools</h2>
           </div>
 
           <div class="skills-grid">
             <div class="skill-card">
-              <div class="skill-card-header">
-                <div class="skill-card-title">Programming</div>
-              </div>
+              <div class="skill-card-header"><div class="skill-card-title">Languages</div></div>
               <div class="chip-row">
-                <span class="chip">Python</span>
                 <span class="chip">Java</span>
+                <span class="chip">SQL</span>
+                <span class="chip">Python</span>
                 <span class="chip">C</span>
               </div>
             </div>
 
             <div class="skill-card">
-              <div class="skill-card-header">
-                <div class="skill-card-title">Web Development</div>
+              <div class="skill-card-header"><div class="skill-card-title">Databases</div></div>
+              <div class="chip-row">
+                <span class="chip">MySQL</span>
+                <span class="chip">Relational design</span>
+                <span class="chip">Normalization</span>
+                <span class="chip">Reporting queries</span>
               </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="skill-card-header"><div class="skill-card-title">Backend</div></div>
+              <div class="chip-row">
+                <span class="chip">JDBC</span>
+                <span class="chip">CRUD</span>
+                <span class="chip">Data validation</span>
+                <span class="chip">Debugging</span>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="skill-card-header"><div class="skill-card-title">Tools</div></div>
+              <div class="chip-row">
+                <span class="chip">Git</span>
+                <span class="chip">GitHub</span>
+                <span class="chip">Command line</span>
+                <span class="chip">VS Code</span>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="skill-card-header"><div class="skill-card-title">Web basics</div></div>
               <div class="chip-row">
                 <span class="chip">HTML</span>
                 <span class="chip">CSS</span>
@@ -1295,48 +848,11 @@
             </div>
 
             <div class="skill-card">
-              <div class="skill-card-header">
-                <div class="skill-card-title">Databases</div>
-              </div>
-              <div class="chip-row">
-                <span class="chip">MySQL</span>
-                <span class="chip">SQL Workbench</span>
-                <span class="chip">Relational design</span>
-                <span class="chip">Normalization</span>
-              </div>
-            </div>
-
-            <div class="skill-card">
-              <div class="skill-card-header">
-                <div class="skill-card-title">Tools & Workflow</div>
-              </div>
-              <div class="chip-row">
-                <span class="chip">Git & GitHub</span>
-                <span class="chip">VS Code</span>
-                <span class="chip">MS Office</span>
-              </div>
-            </div>
-
-            <div class="skill-card">
-              <div class="skill-card-header">
-                <div class="skill-card-title">Interests</div>
-              </div>
-              <div class="chip-row">
-                <span class="chip">Data Analytics</span>
-                <span class="chip">Machine Learning</span>
-                <span class="chip">AI Development</span>
-                <span class="chip">Cloud Computing (AWS)</span>
-              </div>
-            </div>
-
-            <div class="skill-card">
-              <div class="skill-card-header">
-                <div class="skill-card-title">Soft Skills</div>
-              </div>
+              <div class="skill-card-header"><div class="skill-card-title">Strengths</div></div>
               <div class="chip-row">
                 <span class="chip">Problem solving</span>
-                <span class="chip">Leadership</span>
-                <span class="chip">Time management</span>
+                <span class="chip">Communication</span>
+                <span class="chip">Ownership</span>
                 <span class="chip">Teamwork</span>
               </div>
             </div>
@@ -1344,111 +860,122 @@
         </div>
       </section>
 
-      <!-- PROJECTS -->
       <section id="projects">
         <div class="container reveal">
           <div class="section-header">
-            <div class="section-kicker">PROJECTS</div>
-            <h2 class="section-title">Things I've built & I'm building</h2>
+            <div class="section-kicker">Projects</div>
+            <h2 class="section-title">Selected projects (completed)</h2>
           </div>
 
           <div class="projects-grid">
-            <!-- Project 1 -->
             <article class="project-card">
               <div class="project-top-row">
-                <h3 class="project-title">Car Service Database Management System</h3>
-                <span class="project-tag">Database · MySQL</span>
+                <h3 class="project-title">Job Application Tracker</h3>
+                <span class="project-tag">Java · MySQL · JDBC</span>
               </div>
-              <p class="project-description">
-                Designed and implemented a relational database to manage customers, employees,
-                cars, and services. Applied normalization and efficient SQL queries to support
-                smooth data retrieval and realistic service flows.
+
+              <p class="project-summary">
+                CLI tool to manage job applications, CV versions, employers, and interviews with CV performance analytics.
               </p>
+
               <div class="project-meta">
-                <span>MySQL</span>
-                <span>SQL Workbench</span>
-                <span>Relational design</span>
+                <span>Java</span><span>MySQL</span><span>JDBC</span><span>CRUD</span><span>Analytics</span>
               </div>
+
+              <ul class="project-bullets">
+                <li>Designed relational schema for applications, employers, CV versions, and interviews.</li>
+                <li>Implemented CRUD workflows via JDBC with input validation and error handling.</li>
+                <li>Added analytics for applications per CV, interviews per CV, and conversion rate per CV.</li>
+              </ul>
+
               <div class="project-links">
-                <!-- Add your repo URL here when ready -->
-                <!-- <a href="#" target="_blank" rel="noreferrer">GitHub ↗</a> -->
-                <span style="font-size:0.78rem;color:#9ca3af;">Academic / personal project</span>
+                <a href="https://github.com/GhulamMustafa-MS/job-application-tracker" target="_blank" rel="noreferrer">GitHub repository</a>
               </div>
             </article>
 
-            <!-- Project 2 -->
             <article class="project-card">
               <div class="project-top-row">
-                <h3 class="project-title">Work Hours Tracker (Java)</h3>
-                <span class="project-tag">Java · Console app</span>
+                <h3 class="project-title">Car Service Database System</h3>
+                <span class="project-tag">MySQL · SQL</span>
               </div>
-              <p class="project-description">
-                Console-based Java program to log, manage, and analyse weekly working hours.
-                Uses file handling and data manipulation to keep the data lightweight while
-                still giving meaningful summaries.
+
+              <p class="project-summary">
+                Normalized database design for a car service business, including schema scripts, ER diagram, and reporting queries.
               </p>
+
               <div class="project-meta">
-                <span>Java</span>
-                <span>File handling</span>
-                <span>Data processing</span>
+                <span>MySQL</span><span>Schema design</span><span>Normalization</span><span>Reporting</span>
               </div>
+
+              <ul class="project-bullets">
+                <li>Built a normalized schema with clear table relationships and constraints.</li>
+                <li>Wrote business queries for operational reporting and data retrieval.</li>
+                <li>Recorded a walkthrough explaining the design decisions and implementation.</li>
+              </ul>
+
               <div class="project-links">
-                <!-- <a href="#" target="_blank" rel="noreferrer">GitHub ↗</a> -->
-                <span style="font-size:0.78rem;color:#9ca3af;">Local CLI tool</span>
+                <a href="https://github.com/GhulamMustafa-MS/car-service-database-system" target="_blank" rel="noreferrer">GitHub repository</a>
+                <a href="https://drive.google.com/file/d/1RcNyXz84ZdbMREH7v_ElAYEUDGp9CYL-/view?usp=sharing" target="_blank" rel="noreferrer">Walkthrough video</a>
               </div>
             </article>
 
-            <!-- Project 3 -->
             <article class="project-card">
               <div class="project-top-row">
-                <h3 class="project-title">Duplicate Image Detector (In Progress)</h3>
-                <span class="project-tag">Python · OpenCV</span>
+                <h3 class="project-title">Work Hours Tracker</h3>
+                <span class="project-tag">Java · File I/O</span>
               </div>
-              <p class="project-description">
-                Python utility to detect and help remove duplicate images using hashing techniques.
-                Aims to clean up large image folders quickly and safely.
+
+              <p class="project-summary">
+                Java console program for recording weekly working hours with file storage and simple summaries.
               </p>
+
               <div class="project-meta">
-                <span>Python</span>
-                <span>OpenCV</span>
-                <span>NumPy</span>
-                <span>Perceptual hashing</span>
+                <span>Java</span><span>File I/O</span><span>Input validation</span><span>Arrays</span>
               </div>
+
+              <ul class="project-bullets">
+                <li>Implemented hour entry and weekly totals with basic validation.</li>
+                <li>Used file input/output for persistent storage.</li>
+                <li>Generated simple summaries to support quick review.</li>
+              </ul>
+
               <div class="project-links">
-                <!-- <a href="#" target="_blank" rel="noreferrer">GitHub ↗</a> -->
-                <span style="font-size:0.78rem;color:#9ca3af;">Status: In progress</span>
+                <a href="https://github.com/GhulamMustafa-MS/Work-Hours-manager" target="_blank" rel="noreferrer">GitHub repository</a>
               </div>
             </article>
 
-            <!-- Project 4 -->
             <article class="project-card">
               <div class="project-top-row">
-                <h3 class="project-title">AI-Powered Rota Manager (Planned)</h3>
-                <span class="project-tag">AI · Scheduling</span>
+                <h3 class="project-title">More work</h3>
+                <span class="project-tag">GitHub</span>
               </div>
-              <p class="project-description">
-                Planned AI-based tool to optimise staff scheduling using constraints like availability,
-                roles, and fairness. The goal is to reduce manual rota work while balancing workloads.
+
+              <p class="project-summary">
+                Additional coursework and small projects are available on my GitHub profile. Pinned repositories highlight
+                the work most relevant to entry-level roles.
               </p>
+
               <div class="project-meta">
-                <span>Python</span>
-                <span>Pandas</span>
-                <span>TensorFlow (planned)</span>
+                <span>Git</span><span>GitHub</span><span>Documentation</span>
               </div>
+
               <div class="project-links">
-                <span style="font-size:0.78rem;color:#9ca3af;">Concept & design phase</span>
+                <a href="https://github.com/GhulamMustafa-MS" target="_blank" rel="noreferrer">GitHub profile</a>
               </div>
             </article>
+          </div>
+
+          <div style="margin-top:1.2rem;color:#9ca3af;font-size:0.86rem;">
+            Currently learning: Python scripting, data handling, and improving testing and documentation standards.
           </div>
         </div>
       </section>
 
-      <!-- EXPERIENCE -->
       <section id="experience">
         <div class="container reveal">
           <div class="section-header">
-            <div class="section-kicker">EXPERIENCE</div>
-            <h2 class="section-title">Experience & what it taught me</h2>
+            <div class="section-kicker">Experience</div>
+            <h2 class="section-title">Experience</h2>
           </div>
 
           <div class="experience-grid">
@@ -1457,12 +984,11 @@
                 <div class="timeline-item">
                   <div class="timeline-dot"></div>
                   <div class="timeline-role">Kitchen Manager — Another Brother</div>
-                  <div class="timeline-meta">Canary Wharf, London · Nov 2024 – Present</div>
+                  <div class="timeline-meta">Canary Wharf, London · November 2024 – Present</div>
                   <div class="timeline-body">
-                    Managed daily kitchen operations and supervised a small team, maintaining
-                    high standards of quality and safety under pressure. This role strengthened my
-                    leadership, time management, and ability to stay calm and organised —
-                    skills I bring directly into technical work and team projects.
+                    Manage daily operations and coordinate team responsibilities in a fast-paced environment.
+                    This role strengthened communication, organization, and problem-solving skills that transfer
+                    directly to technical work and support roles.
                   </div>
                 </div>
               </div>
@@ -1470,121 +996,103 @@
 
             <div>
               <div class="xp-card">
-                <div class="xp-card-title">How this connects to tech</div>
-                <p>
-                  Working in a fast-paced environment has taught me to:
-                </p>
+                <div class="xp-card-title">Transferable strengths</div>
+                <p>Experience in a high-pressure environment has strengthened my ability to:</p>
                 <ul style="margin-left:1.1rem;margin-top:0.4rem;">
-                  <li>Communicate clearly with a team under time pressure.</li>
-                  <li>Break down complex tasks into smaller, manageable steps.</li>
-                  <li>Be reliable and consistent — even on busy days.</li>
+                  <li>Communicate clearly and coordinate tasks across a team.</li>
+                  <li>Stay organized and deliver reliably under time constraints.</li>
+                  <li>Troubleshoot issues quickly and keep work moving.</li>
                 </ul>
-                <p style="margin-top:0.6rem;">
-                  These traits translate directly into software development, debugging, and
-                  collaborating on engineering projects.
-                </p>
 
                 <div class="xp-chip-row">
-                  <span class="chip">Leadership</span>
-                  <span class="chip">Ownership</span>
-                  <span class="chip">Resilience</span>
-                  <span class="chip">Teamwork</span>
+                  <span class="chip">Team leadership</span>
+                  <span class="chip">Time management</span>
+                  <span class="chip">Problem solving</span>
+                  <span class="chip">Communication</span>
                 </div>
-              </div>
-
-              <div style="margin-top:1rem;font-size:0.85rem;color:#9ca3af;">
-                <strong>Certification:</strong> Microsoft Office Specialist — Word Associate
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- CONTACT -->
       <section id="contact">
         <div class="container reveal">
           <div class="section-header">
-            <div class="section-kicker">CONTACT</div>
-            <h2 class="section-title">Let’s build something</h2>
+            <div class="section-kicker">Contact</div>
+            <h2 class="section-title">Contact</h2>
           </div>
 
           <div class="contact-grid">
             <div class="contact-card">
               <p>
-                I’m open to internships, junior roles, and opportunities related to
-                <strong>databases</strong>, <strong>data analytics</strong>, and
-                <strong>AI-powered systems</strong>.
+                The best way to reach me is by email or LinkedIn. I am open to entry-level software development,
+                IT support, and technical roles.
               </p>
 
               <div class="contact-row">
                 <div>
                   <div class="contact-item-label">Email</div>
-                  <a href="mailto:ghulammustafa99922@gmail.com" class="contact-link">
-                    ✉️ ghulammustafa99922@gmail.com
-                  </a>
+                  <a href="mailto:ghulammustafa99922@gmail.com" class="contact-link">ghulammustafa99922@gmail.com</a>
                 </div>
 
                 <div>
                   <div class="contact-item-label">GitHub</div>
-                  <a href="https://github.com/GhulamMustafa-MS" target="_blank" rel="noreferrer"
-                    class="contact-link">
-                    💻 github.com/GhulamMustafa-MS
+                  <a href="https://github.com/GhulamMustafa-MS" target="_blank" rel="noreferrer" class="contact-link">
+                    github.com/GhulamMustafa-MS
                   </a>
                 </div>
 
                 <div>
                   <div class="contact-item-label">LinkedIn</div>
-                  <a href="https://linkedin.com/in/ghulam-mustafa-41807b281" target="_blank"
-                    rel="noreferrer" class="contact-link">
-                    🔗 linkedin.com/in/ghulam-mustafa-41807b281
+                  <a href="https://linkedin.com/in/ghulam-mustafa-41807b281" target="_blank" rel="noreferrer" class="contact-link">
+                    linkedin.com/in/ghulam-mustafa-41807b281
                   </a>
                 </div>
 
                 <div>
                   <div class="contact-item-label">Location</div>
-                  <span class="contact-link">📍 Harrow Wealdstone, London, UK</span>
+                  <span class="contact-link">London, United Kingdom</span>
                 </div>
               </div>
 
               <p style="margin-top:0.8rem;font-size:0.8rem;color:#9ca3af;">
-                Prefer email or LinkedIn — I respond as quickly as I can.
+                Response time is usually within 24–48 hours.
               </p>
             </div>
 
             <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
-                <input type="hidden" name="access_key" value="8a05d651-0589-4426-a3cd-dbaa950a33c0">
+              <input type="hidden" name="access_key" value="8a05d651-0589-4426-a3cd-dbaa950a33c0">
+              <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
 
-                <div class="form-field">
-                    <label class="form-label" for="name">Name</label>
-                    <input id="name" name="name" class="form-input" type="text" required />
-                </div>
+              <div class="form-field">
+                <label class="form-label" for="name">Name</label>
+                <input id="name" name="name" class="form-input" type="text" required />
+              </div>
 
-                <div class="form-field">
-                    <label class="form-label" for="email">Email</label>
-                    <input id="email" name="email" class="form-input" type="email" required />
-                </div>
+              <div class="form-field">
+                <label class="form-label" for="email">Email</label>
+                <input id="email" name="email" class="form-input" type="email" required />
+              </div>
 
-                <div class="form-field">
-                    <label class="form-label" for="message">Message</label>
-                    <textarea id="message" name="message" class="form-textarea" required></textarea>
-                </div>
+              <div class="form-field">
+                <label class="form-label" for="message">Message</label>
+                <textarea id="message" name="message" class="form-textarea" required></textarea>
+              </div>
 
-                <button type="submit" class="btn-primary form-submit">
-                    Send message
-                </button>
+              <button type="submit" class="btn-primary form-submit">Send message</button>
             </form>
           </div>
         </div>
       </section>
     </main>
 
-    <!-- FOOTER -->
     <footer>
       <div class="container">
         <div class="footer-inner">
           <span>© <span id="year"></span> Ghulam Mustafa. All rights reserved.</span>
           <div class="footer-links">
-            <a href="#home" data-scroll="#home">Back to top ↑</a>
+            <a href="#home" data-scroll="#home">Back to top</a>
           </div>
         </div>
       </div>
@@ -1592,13 +1100,13 @@
   </div>
 
   <script>
-    // Typing animation
+    // Typed line
     const typedTextElement = document.getElementById("typedText");
     const phrases = [
-      "Computing Systems student at Ulster University",
-      "Database & SQL enthusiast",
-      "Aspiring data & AI developer",
-      "Builder of practical tools and systems"
+      "Java development with JDBC and MySQL",
+      "Relational database design and SQL reporting queries",
+      "CRUD systems, data validation, and debugging",
+      "Documented projects with clear write-ups"
     ];
     const typingSpeed = 55;
     const eraseSpeed = 40;
@@ -1627,10 +1135,9 @@
       }
       setTimeout(typeLoop, isDeleting ? eraseSpeed : typingSpeed);
     }
-
     typeLoop();
 
-    // Smooth scrolling
+    // Smooth scrolling + close mobile nav after click
     function handleSmoothScroll(e) {
       const target = e.target.closest("[data-scroll]");
       if (!target) return;
@@ -1640,11 +1147,10 @@
         e.preventDefault();
         section.scrollIntoView({ behavior: "smooth", block: "start" });
       }
-      // Close mobile nav after click
       navLinksMobile.classList.remove("nav-mobile-visible");
       navToggle.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
     }
-
     document.addEventListener("click", handleSmoothScroll);
 
     // Mobile nav toggle
@@ -1652,27 +1158,30 @@
     const navLinksMobile = document.getElementById("navLinksMobile");
 
     navToggle.addEventListener("click", () => {
-      navToggle.classList.toggle("open");
+      const isOpen = navToggle.classList.toggle("open");
       navLinksMobile.classList.toggle("nav-mobile-visible");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
     });
 
-    // Scroll reveal using IntersectionObserver
+    // Reveal (IntersectionObserver) with safe fallback already handled by .no-js
     const revealElements = document.querySelectorAll(".reveal");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.2,
-      }
-    );
-
-    revealElements.forEach((el) => observer.observe(el));
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      revealElements.forEach((el) => observer.observe(el));
+    } else {
+      // Older browsers: show content
+      revealElements.forEach((el) => el.classList.add("visible"));
+    }
 
     // Footer year
     document.getElementById("year").textContent = new Date().getFullYear();
