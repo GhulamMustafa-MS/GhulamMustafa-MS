@@ -125,7 +125,8 @@ h1{margin:0;font-size:clamp(40px,7.2vw,58px);line-height:1.05;font-weight:600;le
 .feature .phones{gap:14px}
 .feature .phones li:nth-child(even){transform:translateY(14px)}
 .shots{background:var(--tray);border:1.5px dashed #8A857A;padding:16px 12px 12px;display:flex;justify-content:center}
-.shots .phone{width:118px;border-radius:16px}
+.shots .phone{width:128px;border-radius:16px}
+@media (min-width:641px){.shots .phones{display:grid;grid-template-columns:repeat(2,auto);gap:16px 22px;overflow:visible}}
 .shots .phone img{aspect-ratio:540/900}
 
 /* about */
@@ -245,6 +246,7 @@ h1{margin:0;font-size:clamp(40px,7.2vw,58px);line-height:1.05;font-weight:600;le
         <div class="shots">
           <ul class="phones" aria-label="Kartak screenshots, demo data">
             <li><div class="phone"><img src="/img/kartak-quiz.webp" width="540" height="1169" loading="lazy" decoding="async" alt="Practice question in English with the answer explained."></div><span class="cap">Quiz</span></li>
+            <li><div class="phone"><img src="/img/kartak-languages.webp" width="540" height="1169" loading="lazy" decoding="async" alt="Language picker with English, Arabic, Urdu, Hindi, Bangla, Nepali, Malayalam, Tamil and Filipino."></div><span class="cap">Languages</span></li>
             <li><div class="phone"><img src="/img/kartak-arabic.webp" width="540" height="1169" loading="lazy" decoding="async" alt="The same app in Arabic, laid out right to left."></div><span class="cap">Arabic</span></li>
             <li><div class="phone"><img src="/img/kartak-dashboard.webp" width="540" height="1169" loading="lazy" decoding="async" alt="Results dashboard with tests taken, average score and who is ready for the exam, for demo users."></div><span class="cap">Results</span></li>
           </ul>
