@@ -120,9 +120,10 @@ h1{margin:0;font-size:clamp(40px,7.2vw,58px);line-height:1.05;font-weight:600;le
 .phone{width:150px;border:1.5px solid var(--ink);border-radius:20px;overflow:hidden;background:var(--white)}
 .phone img{width:100%;aspect-ratio:540/1169;object-fit:cover;object-position:top}
 .phones .cap{font-family:var(--mono);font-size:12px;color:var(--faint);text-transform:uppercase;letter-spacing:.04em}
-.feature .phone{width:134px}
+.feature .phone{width:128px}
+@media (min-width:641px){.feature .phones{display:grid;grid-template-columns:repeat(2,auto);gap:18px 22px;overflow:visible}}
 .feature .phones{gap:14px}
-.feature .phones li:nth-child(2){transform:translateY(-14px)}
+.feature .phones li:nth-child(even){transform:translateY(14px)}
 .shots{background:var(--tray);border:1.5px dashed #8A857A;padding:16px 12px 12px;display:flex;justify-content:center}
 .shots .phone{width:118px;border-radius:16px}
 .shots .phone img{aspect-ratio:540/900}
@@ -149,7 +150,7 @@ h1{margin:0;font-size:clamp(40px,7.2vw,58px);line-height:1.05;font-weight:600;le
   .feature .ticket-body,.ticket-body{padding:24px}
   .feature h3{font-size:26px}
   .tray{border-left:0;border-top:1.5px solid var(--ink);padding:24px 0 24px 24px;justify-content:flex-start}
-  .feature .phones li:nth-child(2){transform:none}
+  .feature .phones li:nth-child(even){transform:none}
   .feature .phones{padding-right:24px}
   .receipt{padding:26px 22px}
 }
@@ -210,17 +211,19 @@ h1{margin:0;font-size:clamp(40px,7.2vw,58px);line-height:1.05;font-weight:600;le
       <dl class="stats">
         <div><dt>Ordering time</dt><dd>15-20 min → ~5</dd></div>
         <div><dt>Suppliers</dt><dd>8</dd></div>
+        <div><dt>Manager approval</dt><dd>Yes</dd></div>
         <div><dt>Food-safety checks</dt><dd>Built</dd></div>
         <div><dt>Phone reminders</dt><dd>Built</dd></div>
-        <div><dt>Automated tests</dt><dd>197</dd></div>
+        <div><dt>Automated tests</dt><dd>210</dd></div>
       </dl>
       <p class="mono" style="margin:0;font-size:13px;color:var(--faint)">Python · FastAPI · PostgreSQL · Vercel</p>
-      <p class="note">cut ordering to about 5 minutes ↗</p>
+      <p class="note">added manager sign-off after a cover shift doubled an order ↗</p>
     </div>
     <div class="tray">
       <ul class="phones" aria-label="Amigos Orders screenshots, demo data">
         <li><div class="phone"><img src="/img/amigos-suppliers.webp" width="540" height="1169" loading="lazy" decoding="async" alt="Supplier list: Booker, Glenfields, D and L, Amigo Store, DIBS, Star, Fresh Union and Environmental Packaging."></div><span class="cap">Suppliers</span></li>
         <li><div class="phone"><img src="/img/amigos-count.webp" width="540" height="1169" loading="lazy" decoding="async" alt="Stock count screen: for each item, what we have on the shelf and how many to order, with 40 of 55 items counted."></div><span class="cap">Stock count</span></li>
+        <li><div class="phone"><img src="/img/amigos-approval.webp" width="540" height="1169" loading="lazy" decoding="async" alt="Manager's Today screen: one list from a team member waiting to be approved."></div><span class="cap">Approval</span></li>
         <li><div class="phone"><img src="/img/amigos-order.webp" width="540" height="1169" loading="lazy" decoding="async" alt="Order check screen: each line shows the app's suggested amount next to the staff amount."></div><span class="cap">Order</span></li>
       </ul>
     </div>
