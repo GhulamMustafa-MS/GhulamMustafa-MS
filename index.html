@@ -1,1149 +1,290 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Ghulam Mustafa | Python &amp; Backend Engineer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <meta name="description" content="Ghulam Mustafa: Python and backend engineer, graduating 2027 from Ulster University London. Builds real apps for real businesses with AI as his tool, including a stock and ordering app in daily use at a Harrow restaurant." />
-  <meta property="og:title" content="Ghulam Mustafa | Python &amp; Backend Engineer" />
-  <meta property="og:description" content="I build real apps for real businesses, with AI as my tool. My stock and ordering app cut a restaurant's nightly ordering from 15–20 minutes to about 5. Open to 2027 graduate software roles." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://ghulam-mustafa-ms.vercel.app/" />
-  <meta property="og:image" content="https://ghulam-mustafa-ms.vercel.app/og-image.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="627" />
-  <meta property="og:image:alt" content="Hand-drawn card: Ghulam Mustafa, Python and backend engineer, with a phone showing a stock ordering checklist" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Ghulam Mustafa | Python &amp; Backend Engineer" />
-  <meta name="twitter:description" content="I build real apps for real businesses, with AI as my tool. Open to 2027 graduate software roles." />
-  <meta name="twitter:image" content="https://ghulam-mustafa-ms.vercel.app/og-image.png" />
-
-  <style>
-    :root {
-      --bg-dark: #050816;
-      --bg-elevated: #0a1024;
-      --accent: #4f46e5;
-      --accent-2: #22c55e;
-      --text-main: #f9fafb;
-      --text-muted: #9ca3af;
-      --border-subtle: rgba(148, 163, 184, 0.2);
-      --shadow-soft: 0 22px 45px rgba(15, 23, 42, 0.75);
-      --radius-xl: 20px;
-      --transition-fast: 0.2s ease-out;
-      --transition-med: 0.3s ease-out;
-      --max-width: 1120px;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #111827 0, #020617 40%, #020617 100%);
-      color: var(--text-main);
-      line-height: 1.6;
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #020617; }
-    ::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 999px; }
-
-    .page { min-height: 100vh; display: flex; flex-direction: column; }
-    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
-    section { padding: 5rem 0; position: relative; overflow: hidden; }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      backdrop-filter: blur(18px);
-      background: linear-gradient(
-        to bottom,
-        rgba(15, 23, 42, 0.95),
-        rgba(15, 23, 42, 0.7),
-        transparent
-      );
-      border-bottom: 1px solid rgba(51, 65, 85, 0.6);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 4.25rem;
-    }
-
-    .nav-left { display: flex; align-items: center; gap: 0.75rem; }
-
-    .nav-logo {
-      width: 34px;
-      height: 34px;
-      border-radius: 12px;
-      background: radial-gradient(circle at 20% 0, #4f46e5, #22c55e);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.1rem;
-      box-shadow: 0 12px 25px rgba(79, 70, 229, 0.7);
-    }
-
-    .nav-brand-text { display: flex; flex-direction: column; }
-    .nav-brand-text span:first-child { font-weight: 600; font-size: 0.95rem; }
-    .nav-brand-text span:last-child { font-size: 0.8rem; color: var(--text-muted); }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.8rem;
-      font-size: 0.93rem;
-    }
-
-    .nav-links a {
-      position: relative;
-      padding-bottom: 2px;
-      color: #e5e7eb;
-      cursor: pointer;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-      width: 0;
-      height: 2px;
-      border-radius: 999px;
-      background: linear-gradient(to right, var(--accent), var(--accent-2));
-      transition: width var(--transition-fast);
-    }
-
-    .nav-links a:hover::after { width: 100%; }
-
-    .nav-cta {
-      padding: 0.45rem 0.95rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      font-size: 0.82rem;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      transition: background var(--transition-fast), transform var(--transition-fast);
-      background: transparent;
-      color: #e5e7eb;
-    }
-
-    .nav-cta:hover {
-      background: rgba(15, 23, 42, 0.9);
-      transform: translateY(-1px);
-    }
-
-    .nav-toggle {
-      display: none;
-      width: 2.25rem;
-      height: 2.25rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      background: transparent;
-    }
-
-    .nav-toggle-line {
-      width: 16px;
-      height: 2px;
-      border-radius: 999px;
-      background: #e5e7eb;
-      position: relative;
-    }
-    .nav-toggle-line::before,
-    .nav-toggle-line::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      width: 16px;
-      height: 2px;
-      border-radius: 999px;
-      background: #e5e7eb;
-      transition: transform var(--transition-fast), top var(--transition-fast), opacity var(--transition-fast);
-    }
-    .nav-toggle-line::before { top: -5px; }
-    .nav-toggle-line::after { top: 5px; }
-
-    .nav-toggle.open .nav-toggle-line { background: transparent; }
-    .nav-toggle.open .nav-toggle-line::before { top: 0; transform: rotate(45deg); }
-    .nav-toggle.open .nav-toggle-line::after { top: 0; transform: rotate(-45deg); }
-
-    .nav-links-mobile {
-      display: none;
-      flex-direction: column;
-      gap: 1rem;
-      padding: 0.75rem 0 1.2rem;
-      font-size: 0.95rem;
-    }
-    .nav-links-mobile a { color: #e5e7eb; cursor: pointer; }
-
-    .nav-links-mobile.nav-mobile-visible { display: flex; }
-
-    .hero { padding-top: 3.5rem; }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 2.2rem;
-      align-items: start;
-    }
-
-    .hero-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.15rem 0.6rem;
-      font-size: 0.75rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      color: var(--text-muted);
-      margin-bottom: 1.1rem;
-      background: radial-gradient(circle at 0 0, rgba(79, 70, 229, 0.25), transparent);
-    }
-
-    .hero-kicker-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--accent-2);
-      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.25);
-    }
-
-    .hero-title {
-      font-size: clamp(2.2rem, 3.2vw + 1rem, 3.2rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      margin-bottom: 0.6rem;
-    }
-    .hero-title span {
-      background: linear-gradient(to right, #e5e7eb, #a5b4fc);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .hero-typed-wrapper {
-      font-size: 1.02rem;
-      color: var(--text-muted);
-      margin-bottom: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .hero-typed-label {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #6b7280;
-    }
-
-    .hero-typed {
-      font-weight: 500;
-      color: #e5e7eb;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 2px solid rgba(148, 163, 184, 0.8);
-      padding-right: 4px;
-    }
-
-    .hero-subtitle {
-      color: var(--text-muted);
-      font-size: 0.97rem;
-      max-width: 42rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .hero-tag {
-      font-size: 0.75rem;
-      padding: 0.2rem 0.6rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      background: radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.2), transparent);
-      color: #cbd5f5;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 0.2rem;
-    }
-
-    .btn-primary, .btn-ghost {
-      padding: 0.6rem 1.2rem;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
-        background var(--transition-fast), border var(--transition-fast);
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: radial-gradient(circle at 0 0, #22c55e, #4f46e5);
-      color: white;
-      box-shadow: 0 18px 38px rgba(55, 65, 81, 0.9);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 24px 55px rgba(15, 23, 42, 0.9);
-    }
-
-    .btn-ghost {
-      background: rgba(15, 23, 42, 0.8);
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      color: #e5e7eb;
-    }
-
-    .btn-ghost:hover {
-      background: rgba(15, 23, 42, 1);
-      transform: translateY(-2px);
-    }
-
-    .section-header { margin-bottom: 2.5rem; }
-    .section-kicker { font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase; color: #6b7280; margin-bottom: 0.3rem; }
-    .section-title { font-size: 1.6rem; font-weight: 600; letter-spacing: -0.03em; }
-
-    .about-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr); gap: 2.6rem; }
-    .about-text { font-size: 0.96rem; color: var(--text-muted); }
-    .about-text p + p { margin-top: 0.7rem; }
-
-    .about-highlights { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.9rem; margin-top: 1.8rem; }
-    .about-highlight {
-      padding: 0.85rem 0.9rem;
-      border-radius: 16px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      background: radial-gradient(circle at 0 0, rgba(79, 70, 229, 0.2), #020617);
-      font-size: 0.8rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.15rem;
-    }
-    .about-highlight span:first-child { font-size: 1.1rem; font-weight: 600; }
-    .about-highlight span:last-child { color: var(--text-muted); }
-
-    .about-card {
-      border-radius: 18px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      background: radial-gradient(circle at 0 0, #111827, #020617);
-      padding: 1.3rem 1.2rem 1.1rem;
-      box-shadow: var(--shadow-soft);
-      font-size: 0.85rem;
-    }
-
-    .about-card-header { display: flex; justify-content: space-between; margin-bottom: 0.7rem; align-items: center; }
-    .about-pill { font-size: 0.7rem; padding: 0.18rem 0.6rem; border-radius: 999px; border: 1px solid rgba(148, 163, 184, 0.5); color: var(--text-muted); }
-    .about-card-title { font-weight: 600; font-size: 0.88rem; }
-    .about-card-body { color: var(--text-muted); margin-bottom: 0.8rem; }
-    .about-card-meta { font-size: 0.8rem; color: #9ca3af; }
-
-    .skills-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
-
-    .skill-card {
-      border-radius: 16px;
-      border: 1px solid var(--border-subtle);
-      background: linear-gradient(
-        145deg,
-        rgba(15, 23, 42, 0.98),
-        rgba(15, 23, 42, 0.96),
-        rgba(15, 23, 42, 0.98)
-      );
-      padding: 0.95rem 1rem;
-      font-size: 0.86rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-    .skill-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3rem; }
-    .skill-card-title { font-weight: 600; font-size: 0.88rem; }
-
-    .chip-row { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-    .chip {
-      font-size: 0.75rem;
-      padding: 0.18rem 0.55rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      color: #cbd5f5;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.6rem;
-      margin-top: 0.5rem;
-    }
-
-    .project-card {
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      background: linear-gradient(
-        135deg,
-        rgba(15, 23, 42, 0.96),
-        rgba(30, 64, 175, 0.35)
-      );
-      padding: 1.1rem 1.15rem 1rem;
-      box-shadow: var(--shadow-soft);
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      transform: translateY(0);
-      transition: transform var(--transition-med), box-shadow var(--transition-med),
-        border var(--transition-med);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 0 0, rgba(129, 140, 248, 0.35), transparent 55%);
-      opacity: 0;
-      transition: opacity var(--transition-med);
-      pointer-events: none;
-    }
-
-    .project-card:hover {
-      transform: translateY(-4px) translateZ(0);
-      box-shadow: 0 26px 60px rgba(15, 23, 42, 0.95);
-      border-color: rgba(129, 140, 248, 0.9);
-    }
-
-    .project-card:hover::before { opacity: 1; }
-
-    .project-top-row { display: flex; justify-content: space-between; gap: 0.5rem; align-items: baseline; }
-    .project-title { font-size: 1rem; font-weight: 600; }
-
-    .project-tag {
-      font-size: 0.7rem;
-      padding: 0.16rem 0.55rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.8);
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      color: #cbd5f5;
-      white-space: nowrap;
-    }
-
-    .project-summary {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .project-meta {
-      font-size: 0.8rem;
-      color: #9ca3af;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-    }
-
-    .project-meta span {
-      padding: 0.14rem 0.55rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(148, 163, 184, 0.5);
-    }
-
-    .project-bullets {
-      margin-top: 0.2rem;
-      margin-left: 1.1rem;
-      color: var(--text-muted);
-      font-size: 0.86rem;
-    }
-
-    .project-links {
-      margin-top: 0.2rem;
-      display: flex;
-      gap: 0.9rem;
-      font-size: 0.82rem;
-      flex-wrap: wrap;
-    }
-
-    .project-links a {
-      display: inline-flex;
-      align-items: center;
-      color: #cbd5f5;
-      opacity: 0.95;
-      transition: opacity var(--transition-fast), transform var(--transition-fast);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    .project-links a:hover { opacity: 1; transform: translateY(-1px); }
-
-    .experience-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-      gap: 2.2rem;
-    }
-
-    .timeline {
-      border-left: 1px solid rgba(148, 163, 184, 0.5);
-      margin-left: 0.4rem;
-      padding-left: 1.3rem;
-    }
-
-    .timeline-item { position: relative; margin-bottom: 1.5rem; }
-    .timeline-dot {
-      position: absolute;
-      left: -1.65rem;
-      top: 0.2rem;
-      width: 12px;
-      height: 12px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 0 6px rgba(79, 70, 229, 0.3);
-    }
-
-    .timeline-role { font-weight: 600; font-size: 0.96rem; }
-    .timeline-meta { font-size: 0.8rem; color: #9ca3af; margin-bottom: 0.45rem; }
-    .timeline-body { font-size: 0.86rem; color: var(--text-muted); }
-
-    .xp-card {
-      border-radius: 18px;
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      background: radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.18), #020617);
-      padding: 1rem 1.1rem;
-      font-size: 0.86rem;
-      color: var(--text-muted);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .xp-card-title { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; }
-    .xp-chip-row { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.6rem; }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 2.1fr) minmax(0, 2.2fr);
-      gap: 2.4rem;
-      align-items: center;
-    }
-
-    .contact-card {
-      border-radius: 18px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      background: radial-gradient(circle at 0 0, rgba(79, 70, 229, 0.32), #020617);
-      padding: 1.2rem 1.2rem 1rem;
-      box-shadow: var(--shadow-soft);
-      font-size: 0.88rem;
-    }
-
-    .contact-row { display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.6rem; }
-    .contact-item-label { font-size: 0.8rem; color: #9ca3af; }
-
-    .contact-link {
-      font-size: 0.9rem;
-      display: inline-flex;
-      align-items: center;
-      color: #e5e7eb;
-      word-break: break-word;
-    }
-    .contact-link:hover { text-decoration: underline; }
-
-    .contact-form { display: grid; gap: 0.8rem; font-size: 0.85rem; }
-
-    .form-field { display: flex; flex-direction: column; gap: 0.25rem; }
-    .form-label { font-size: 0.8rem; color: #9ca3af; }
-
-    .form-input, .form-textarea {
-      border-radius: 12px;
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      background: rgba(15, 23, 42, 0.95);
-      color: #e5e7eb;
-      padding: 0.55rem 0.7rem;
-      font-size: 0.86rem;
-      outline: none;
-      transition: border var(--transition-fast), box-shadow var(--transition-fast),
-        background var(--transition-fast);
-    }
-
-    .form-input:focus, .form-textarea:focus {
-      border-color: rgba(129, 140, 248, 0.9);
-      box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.7);
-      background: rgba(15, 23, 42, 1);
-    }
-
-    .form-textarea { min-height: 130px; resize: vertical; }
-    .form-submit { margin-top: 0.4rem; width: fit-content; }
-
-    footer {
-      border-top: 1px solid rgba(30, 64, 175, 0.6);
-      padding: 1.2rem 0 1.4rem;
-      font-size: 0.78rem;
-      color: #6b7280;
-      margin-top: auto;
-      background: radial-gradient(circle at top, rgba(30, 64, 175, 0.12), #020617);
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-links { display: flex; gap: 0.8rem; }
-    .footer-links a { color: #9ca3af; text-decoration: none; }
-    .footer-links a:hover { text-decoration: underline; }
-
-    @media (max-width: 900px) {
-      .about-grid, .experience-grid, .contact-grid { grid-template-columns: minmax(0, 1fr); }
-      .projects-grid { grid-template-columns: minmax(0, 1fr); }
-      .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .about-highlights { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    }
-
-    @media (max-width: 720px) {
-      .nav-links { display: none; }
-      .nav-toggle { display: inline-flex; }
-      .hero { padding-top: 2.3rem; }
-      .about-highlights { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .skills-grid { grid-template-columns: minmax(0, 1fr); }
-      .hero-typed { white-space: normal; }
-    }
-
-    @media (max-width: 520px) {
-      section { padding: 3.5rem 0; }
-      .about-highlights { grid-template-columns: minmax(0, 1fr); }
-      .hero-actions { flex-direction: column; align-items: stretch; }
-      .btn-primary, .btn-ghost { justify-content: center; }
-    }
-
-    html { scroll-behavior: smooth; }
-    section { scroll-margin-top: 5rem; }
-    .hero-typed { border-right: 0; white-space: normal; }
-    .hero-typed-wrapper { align-items: baseline; flex-wrap: wrap; }
-    .hero-typed-label, .section-kicker, footer { color: #a3aec2; }
-    .project-top-row, .about-card-header { flex-wrap: wrap; }
-    .project-tag { white-space: normal; }
-    .project-links { margin-top: auto; padding-top: .65rem; }
-    .hero-kicker { max-width: 100%; }
-    .hero-kicker-dot { flex-shrink: 0; }
-    a:focus-visible, button:focus-visible { outline: 3px solid #a5b4fc; outline-offset: 5px; }
-    .skip-link { position: fixed; top: -5rem; left: 1rem; z-index: 100; padding: .75rem 1rem; background: #fff; color: #050816; border-radius: 8px; }
-    .skip-link:focus { top: .5rem; }
-    @media (min-width: 721px) { .nav-links-mobile.nav-mobile-visible { display: none; } }
-    @media (max-width: 720px) {
-      .no-js .nav-toggle { display: none; }
-      .no-js .nav-links-mobile { display: flex; }
-      .nav-brand-text span:last-child { font-size: .7rem; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition: none !important; animation: none !important; }
-    }
-  </style>
-
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ghulam Mustafa | I build software for the people behind the counter</title>
+<meta name="description" content="Mustafa, final-year Computing Systems student at Ulster University London, open to 2027 graduate software and backend roles. Python, FastAPI, PostgreSQL. Apps in real use by real businesses.">
+<link rel="canonical" href="https://ghulam-mustafa-ms.vercel.app/">
+<meta name="theme-color" content="#F4F1EA">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ghulam Mustafa">
+<meta property="og:url" content="https://ghulam-mustafa-ms.vercel.app/">
+<meta property="og:title" content="Ghulam Mustafa | I build software for the people behind the counter">
+<meta property="og:description" content="Final-year Computing student, open to 2027 graduate software roles. Two apps in real use: a stock and ordering app for a Harrow restaurant and a food-safety exam app in 11 languages.">
+<meta property="og:image" content="https://ghulam-mustafa-ms.vercel.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta property="og:image:alt" content="A paper receipt reading: Mustafa's Kitchen. 1x Python, 1x FastAPI, 1x PostgreSQL, 2x apps in real use. Status: open to hire.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ghulam Mustafa | I build software for the people behind the counter">
+<meta name="twitter:description" content="Final-year Computing student, open to 2027 graduate software roles. Two apps in real use by real businesses.">
+<meta name="twitter:image" content="https://ghulam-mustafa-ms.vercel.app/og-image.png">
+
+<link rel="preload" href="/fonts/inter-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/caveat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:Inter;font-weight:400;font-display:swap;src:url(/fonts/inter-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:Inter;font-weight:500;font-display:swap;src:url(/fonts/inter-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:Inter;font-weight:600;font-display:swap;src:url(/fonts/inter-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-weight:400;font-display:swap;src:url(/fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-weight:500;font-display:swap;src:url(/fonts/ibm-plex-mono-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-weight:600;font-display:swap;src:url(/fonts/ibm-plex-mono-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:Caveat;font-weight:500;font-display:swap;src:url(/fonts/caveat-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:Caveat;font-weight:700;font-display:swap;src:url(/fonts/caveat-latin-700-normal.woff2) format("woff2")}
+
+:root{
+  --paper:#F4F1EA; --ink:#1F1F1F; --rust:#B5462A; --muted:#4A4740; --faint:#5E5A51;
+  --tray:#EFEBE1; --white:#FFFFFF;
+  --sans:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --hand:Caveat,"Comic Sans MS",cursive;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:var(--ink)}
+a:hover{color:var(--rust)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--rust);outline-offset:3px;border-radius:2px}
+.skip{position:absolute;left:-9999px;top:8px;background:var(--ink);color:var(--paper);padding:8px 12px;z-index:10}
+.skip:focus{left:8px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono)}
+.hand{font-family:var(--hand)}
+.rust{color:var(--rust)}
+
+/* header */
+.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 16px;padding:28px 0}
+.logo{font-family:var(--hand);font-size:32px;font-weight:700;text-decoration:none;line-height:1}
+.nav{display:flex;flex-wrap:wrap;gap:8px 24px;font-family:var(--mono);font-size:14px}
+.nav a{text-decoration:none}
+.nav a.cv{text-decoration:underline;text-underline-offset:4px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:56px;align-items:center;padding:72px 0 96px}
+.hero-copy{display:flex;flex-direction:column;gap:24px}
+.hi{margin:0;font-family:var(--hand);font-size:30px;color:var(--rust);transform:rotate(-2deg);transform-origin:left center;line-height:1.1}
+h1{margin:0;font-size:clamp(40px,7.2vw,58px);line-height:1.05;font-weight:600;letter-spacing:-0.025em}
+.lede{margin:0;font-size:18px;line-height:1.65;color:var(--muted);max-width:34em}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:12px 20px;border-radius:6px;border:1.5px solid var(--ink);font-size:15px;text-decoration:none;line-height:1.4}
+.btn.solid{background:var(--ink);color:var(--paper);font-weight:600}
+.btn.solid:hover{background:var(--rust);border-color:var(--rust);color:var(--white)}
+.btn:not(.solid):hover{border-color:var(--rust)}
+
+.receipt{background:var(--white);padding:32px 30px;font-family:var(--mono);font-size:14px;box-shadow:0 1px 0 #E4DFD3,0 12px 30px rgba(40,30,10,.08);transform:rotate(1.5deg);max-width:380px;width:100%;justify-self:center;display:flex;flex-direction:column;gap:12px;margin:0}
+.receipt .head{margin:0;text-align:center;font-weight:600;font-size:16px}
+.receipt .sub{margin:0;text-align:center;color:var(--faint);font-size:12px}
+.receipt ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.line{display:flex;justify-content:space-between;gap:12px}
+.cut{border:0;border-top:1.5px dashed var(--ink);margin:0}
+.receipt .status{font-weight:600}
+.receipt .thanks{margin:0;text-align:center;font-family:var(--hand);font-size:24px;color:var(--rust)}
+.tick{width:14px;height:14px;flex:none;align-self:center}
+
+/* sections */
+.section{padding:72px 0 96px;border-top:1.5px dashed var(--ink)}
+.section-title{margin:0 0 32px;font-family:var(--hand);font-size:44px;font-weight:700;line-height:1.1}
+
+/* tickets */
+.ticket{background:var(--white);border:1.5px solid var(--ink);border-radius:4px}
+.ticket-body{padding:32px;display:flex;flex-direction:column;gap:16px}
+.ticket-top{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);font-size:13px;border-bottom:1.5px dashed var(--ink);padding-bottom:12px}
+.stamp{padding:2px 8px;border-radius:3px;font-family:var(--mono);font-size:13px;letter-spacing:.02em}
+.stamp.live{background:#DDEFD9;color:#1E5E2C}
+.stamp.cooking{background:#FBE7C6;color:#7A4A0B}
+.ticket h3{margin:0;font-weight:600;letter-spacing:-0.02em;line-height:1.25}
+.ticket p.desc{margin:0;color:var(--muted);font-size:16px;line-height:1.6}
+.ticket .kicker{margin:0;font-family:var(--mono);font-size:13px;color:var(--faint);text-transform:uppercase;letter-spacing:.04em}
+.stats{margin:0;display:flex;flex-direction:column;gap:8px;font-family:var(--mono);font-size:14px}
+.stats div{display:flex;justify-content:space-between;gap:16px}
+.stats dt{margin:0}
+.stats dd{margin:0;text-align:right}
+.note{margin:0;font-family:var(--hand);font-size:24px;color:var(--rust);line-height:1.2}
+
+.feature{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));overflow:hidden}
+.feature .ticket-body{padding:36px}
+.feature h3{font-size:30px}
+.tray{background:var(--tray);border-left:1.5px solid var(--ink);padding:32px 24px;display:flex;align-items:center;justify-content:center}
+.pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:28px;margin-top:28px}
+.pair .ticket h3{font-size:26px}
+.pair .ticket.fyp h3{font-size:24px;line-height:1.3}
+
+/* phone screenshots */
+.phones{display:flex;gap:16px;margin:0;padding:0;list-style:none;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;max-width:100%;padding-bottom:4px}
+.phones li{flex:0 0 auto;scroll-snap-align:start;display:flex;flex-direction:column;gap:8px;align-items:center}
+.phone{width:150px;border:1.5px solid var(--ink);border-radius:20px;overflow:hidden;background:var(--white)}
+.phone img{width:100%;aspect-ratio:540/1169;object-fit:cover;object-position:top}
+.phones .cap{font-family:var(--mono);font-size:12px;color:var(--faint);text-transform:uppercase;letter-spacing:.04em}
+.feature .phone{width:134px}
+.feature .phones{gap:14px}
+.feature .phones li:nth-child(2){transform:translateY(-14px)}
+.shots{background:var(--tray);border:1.5px dashed #8A857A;padding:16px 12px 12px;display:flex;justify-content:center}
+.shots .phone{width:118px;border-radius:16px}
+.shots .phone img{aspect-ratio:540/900}
+
+/* about */
+.about{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:48px}
+.about h2{margin:0;font-size:34px;font-weight:600;line-height:1.2;letter-spacing:-0.02em}
+.about-copy{display:flex;flex-direction:column;gap:20px}
+.about-copy p{margin:0;color:var(--muted);font-size:17px;line-height:1.7}
+.placeholder{border:1.5px dashed var(--rust);padding:12px 14px;border-radius:4px}
+.fine{font-family:var(--mono);font-size:13px;color:var(--faint);line-height:1.7;margin:0}
+
+/* contact */
+.contact{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px;padding:48px 0 32px;border-top:1.5px dashed var(--ink)}
+.contact h2{margin:0;font-family:var(--hand);font-size:40px;font-weight:700;line-height:1.1}
+.links{display:flex;flex-wrap:wrap;gap:12px 24px;font-family:var(--mono);font-size:15px}
+.foot{padding:0 0 48px;font-family:var(--mono);font-size:12px;color:var(--faint)}
+
+@media (max-width:640px){
+  .top{padding:20px 0}
+  .hero{padding:40px 0 72px;gap:48px}
+  .section{padding:56px 0 72px}
+  .section-title{font-size:38px}
+  .feature .ticket-body,.ticket-body{padding:24px}
+  .feature h3{font-size:26px}
+  .tray{border-left:0;border-top:1.5px solid var(--ink);padding:24px 0 24px 24px;justify-content:flex-start}
+  .feature .phones li:nth-child(2){transform:none}
+  .feature .phones{padding-right:24px}
+  .receipt{padding:26px 22px}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
 </head>
-
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <div class="page">
-    <header>
-      <div class="container">
-        <nav class="nav" aria-label="Main navigation">
-          <div class="nav-left">
-            <div class="nav-logo">GM</div>
-            <div class="nav-brand-text">
-              <span>Ghulam Mustafa</span>
-              <span>Python &amp; backend engineering</span>
-            </div>
-          </div>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
 
-          <div class="nav-links" id="navLinksDesktop">
-            <a href="#home" data-scroll="#home">Home</a>
-            <a href="#about" data-scroll="#about">About</a>
-            <a href="#skills" data-scroll="#skills">Skills</a>
-            <a href="#projects" data-scroll="#projects">Projects</a>
-            <a href="#how" data-scroll="#how">How I work</a>
-            <a href="#experience" data-scroll="#experience">Experience</a>
-            <a href="#contact" data-scroll="#contact">Contact</a>
-            <button class="nav-cta" data-scroll="#contact" type="button">Contact</button>
-          </div>
+<header class="top">
+  <a class="logo" href="#top" aria-label="Mustafa, back to top">Mustafa</a>
+  <nav class="nav" aria-label="Main">
+    <a href="#work">WORK</a>
+    <a href="#about">ABOUT</a>
+    <a href="#contact">CONTACT</a>
+    <a class="cv" href="/Ghulam_Mustafa_CV.pdf" download>CV ↓</a>
+  </nav>
+</header>
 
-          <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinksMobile">
-            <div class="nav-toggle-line"></div>
-          </button>
-        </nav>
-
-        <div class="nav-links-mobile" id="navLinksMobile">
-          <a href="#home" data-scroll="#home">Home</a>
-          <a href="#about" data-scroll="#about">About</a>
-          <a href="#skills" data-scroll="#skills">Skills</a>
-          <a href="#projects" data-scroll="#projects">Projects</a>
-          <a href="#how" data-scroll="#how">How I work</a>
-          <a href="#experience" data-scroll="#experience">Experience</a>
-          <a href="#contact" data-scroll="#contact">Contact</a>
-        </div>
-      </div>
-    </header>
-
-    <main id="main" tabindex="-1">
-      <section id="home" class="hero">
-        <div class="container">
-          <div class="hero-inner reveal">
-            <div>
-              <div class="hero-kicker">
-                <div class="hero-kicker-dot"></div>
-                <span>Graduating 2027 · Open to graduate software roles</span>
-              </div>
-
-              <h1 class="hero-title">
-                Hi, I'm <span>Ghulam Mustafa</span>. I build real apps for real businesses, with AI as my tool.
-              </h1>
-
-              <div class="hero-typed-wrapper">
-                <span class="hero-typed-label">Focus</span>
-                <span class="hero-typed" id="typedText">Python · FastAPI · PostgreSQL · AI-assisted engineering</span>
-              </div>
-
-              <p class="hero-subtitle">
-                Final-year BSc (Hons) Computing Systems student at Ulster University London.
-                I built a stock and ordering app that staff at a Harrow burger restaurant use every night,
-                cutting their ordering from 15–20 minutes to about 5. AI writes much of the code; I decide what gets built,
-                test it with the people using it, and check it does what it should.
-              </p>
-
-              <div class="hero-tags">
-                <span class="hero-tag">Python</span>
-                <span class="hero-tag">FastAPI</span>
-                <span class="hero-tag">PostgreSQL</span>
-                <span class="hero-tag">SQL</span>
-                <span class="hero-tag">AWS (studying)</span>
-                <span class="hero-tag">Git</span>
-              </div>
-
-              <div class="hero-actions">
-                <a class="btn-primary" href="#projects">Explore my projects</a>
-                <a class="btn-ghost" href="https://github.com/GhulamMustafa-MS" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a class="btn-ghost" href="Ghulam_Mustafa_CV.pdf" download>Download CV</a>
-                <a class="btn-ghost" href="https://linkedin.com/in/ghulam-mustafa-41807b281" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="about">
-        <div class="container reveal">
-          <div class="section-header">
-            <div class="section-kicker">About</div>
-            <h2 class="section-title">About me</h2>
-          </div>
-
-          <div class="about-grid">
-            <div class="about-text">
-              <p>I’m a final-year Computing Systems student, graduating in 2027, focused on Python and backend engineering.</p>
-              <p>I work in hospitality alongside my degree, so I build for problems I see first-hand. My main project is a stock and ordering web app for Amigos Burgers &amp; Shakes in Harrow: staff count stock on their phones, the app builds the orders for each supplier, and a manager approves them before they go out. It’s in daily use.</p>
-              <p>I use AI coding tools for much of the code. My part is the engineering around it: working out the requirements with the people who’ll use it, making the design decisions, and testing and auditing the result so I can explain and trust what ships.</p>
-              <p>I’m preparing for the AWS Certified Solutions Architect – Associate exam, and I’m looking for 2027 graduate software engineering roles.</p>
-
-              <div class="about-highlights">
-                <div class="about-highlight">
-                  <span>Python</span>
-                  <span>FastAPI, automation, local AI</span>
-                </div>
-                <div class="about-highlight">
-                  <span>SQL</span>
-                  <span>PostgreSQL, schema design, reporting</span>
-                </div>
-                <div class="about-highlight">
-                  <span>Live users</span>
-                  <span>An app staff use every night</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="about-card">
-              <div class="about-card-header">
-                <div>
-                  <div class="about-card-title">Education</div>
-                  <div class="about-card-meta">BSc (Hons) Computing Systems — Ulster University London</div>
-                </div>
-                <div class="about-pill">London, UK</div>
-              </div>
-
-              <div class="about-card-body">
-                <p><strong>Expected graduation:</strong> 2027</p>
-                <p><strong>Dean’s List:</strong> Year 1 — 79%</p>
-                <p><strong>Final-year project:</strong> AI forecasting to reduce food waste (in progress).</p>
-                <p><strong>Relevant areas:</strong> Programming, database systems, full-stack development and machine learning.</p>
-              </div>
-
-              <div class="about-card-header" style="margin-top:0.8rem;">
-                <div>
-                  <div class="about-card-title">Professional membership</div>
-                </div>
-              </div>
-
-              <div class="about-card-body">
-                Student member of BCS, The Chartered Institute for IT, since June 2026.
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="skills">
-        <div class="container reveal">
-          <div class="section-header">
-            <div class="section-kicker">Skills</div>
-            <h2 class="section-title">Skills and tools</h2>
-          </div>
-
-          <div class="skills-grid">
-            <div class="skill-card">
-              <div class="skill-card-header"><div class="skill-card-title">Languages</div></div>
-              <div class="chip-row">
-                <span class="chip">Python</span>
-                <span class="chip">SQL</span>
-                <span class="chip">JavaScript (basics)</span>
-                <span class="chip">Java (basics)</span>
-              </div>
-            </div>
-
-            <div class="skill-card">
-              <div class="skill-card-header"><div class="skill-card-title">Databases</div></div>
-              <div class="chip-row">
-                <span class="chip">PostgreSQL</span>
-                <span class="chip">SQLite</span>
-                <span class="chip">MySQL</span>
-                <span class="chip">Schema design</span>
-                <span class="chip">Reporting queries</span>
-              </div>
-            </div>
-
-            <div class="skill-card">
-              <div class="skill-card-header"><div class="skill-card-title">Backend</div></div>
-              <div class="chip-row">
-                <span class="chip">FastAPI</span>
-                <span class="chip">REST APIs</span>
-                <span class="chip">Auth &amp; sessions</span>
-                <span class="chip">Testing (pytest)</span>
-                <span class="chip">Gmail API</span>
-              </div>
-            </div>
-
-            <div class="skill-card">
-              <div class="skill-card-header"><div class="skill-card-title">AI &amp; tools</div></div>
-              <div class="chip-row">
-                <span class="chip">Claude Code</span>
-                <span class="chip">Ollama (local LLMs)</span>
-                <span class="chip">Git</span>
-                <span class="chip">GitHub</span>
-                <span class="chip">VS Code</span>
-              </div>
-            </div>
-
-            <div class="skill-card">
-              <div class="skill-card-header"><div class="skill-card-title">Cloud &amp; deploy</div></div>
-              <div class="chip-row">
-                <span class="chip">Vercel</span>
-                <span class="chip">Neon (Postgres)</span>
-                <span class="chip">AWS (studying SAA)</span>
-                <span class="chip">HTML / CSS</span>
-              </div>
-            </div>
-
-            <div class="skill-card">
-              <div class="skill-card-header"><div class="skill-card-title">Strengths</div></div>
-              <div class="chip-row">
-                <span class="chip">Problem solving</span>
-                <span class="chip">Communication</span>
-                <span class="chip">Ownership</span>
-                <span class="chip">Teamwork</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="projects">
-        <div class="container reveal">
-          <div class="section-header">
-            <div class="section-kicker">Projects</div>
-            <h2 class="section-title">Selected projects</h2>
-          </div>
-
-          <div class="projects-grid">
-            <article class="project-card">
-              <div class="project-top-row">
-                <h3 class="project-title">Stock &amp; Ordering App: Amigos, Harrow</h3>
-                <span class="project-tag">Client project · in daily use</span>
-              </div>
-              <p class="project-summary">A phone web app for stock counts and supplier orders at Amigos Burgers &amp; Shakes. Staff count what’s on the shelf, the app builds each supplier’s order, and a manager approves it before it’s sent.</p>
-              <div class="project-meta"><span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>Vercel</span></div>
-              <ul class="project-bullets">
-                <li>Cut end-of-night ordering from 15–20 minutes to about 5.</li>
-                <li>Covers 8 suppliers, each with its own order days and cut-off times.</li>
-                <li>Added manager approval after a real over-ordering incident in the first week of live use.</li>
-                <li>Includes food-safety checks, and a code audit that found a silently failing invoice upload and 9 security and testing gaps, all fixed.</li>
-              </ul>
-              <div class="project-links"><span style="font-size:0.82rem;color:#9ca3af;">Code is private (client data). Demo available on request.</span></div>
-            </article>
-
-            <article class="project-card">
-              <div class="project-top-row">
-                <h3 class="project-title">Recipe &amp; Training Web App: Another Brother</h3>
-                <span class="project-tag">Client project · starting Dec 2026</span>
-              </div>
-              <p class="project-summary">A web app for a London café group to keep recipes, photos and short training videos for its brands in one place, so every branch trains to the same standard.</p>
-              <div class="project-meta"><span>Web app</span><span>Recipes</span><span>Role-based access</span><span>Video</span></div>
-              <ul class="project-bullets">
-                <li>One login per branch: branches can view and download, only admins can upload or edit.</li>
-                <li>Activity logged per branch, so changes and downloads can be traced.</li>
-                <li>Agreed with the company; build starts in December 2026.</li>
-              </ul>
-              <div class="project-links"><span style="font-size:0.82rem;color:#9ca3af;">In planning.</span></div>
-            </article>
-
-            <article class="project-card">
-              <div class="project-top-row">
-                <h3 class="project-title">Local AI Gmail Sorter</h3>
-                <span class="project-tag">Python · local AI</span>
-              </div>
-              <p class="project-summary">A personal tool that sorts Gmail with rules first, then a language model running on my own laptop for anything the rules can’t place.</p>
-              <div class="project-meta"><span>Python</span><span>Gmail API</span><span>Ollama</span><span>SQLite</span></div>
-              <ul class="project-bullets">
-                <li>Preview mode shows what it would do before anything changes in the mailbox.</li>
-                <li>The AI never archives on its own; it only labels.</li>
-                <li>Tracks processed messages in SQLite, retries API failures, and has automated tests.</li>
-              </ul>
-              <div class="project-links"><a href="https://github.com/GhulamMustafa-MS/local-gmail-ai-sorter" target="_blank" rel="noopener noreferrer">GitHub repository</a></div>
-            </article>
-
-            <article class="project-card">
-              <div class="project-top-row">
-                <h3 class="project-title">Job Application Tracker</h3>
-                <span class="project-tag">Java · MySQL · JDBC</span>
-              </div>
-              <p class="project-summary">A command-line tool to track job applications, CV versions, employers and interviews, with simple analytics on which CV performs best.</p>
-              <div class="project-meta"><span>Java</span><span>MySQL</span><span>JDBC</span><span>SQL</span></div>
-              <ul class="project-bullets">
-                <li>Relational schema for applications, employers, CV versions and interviews.</li>
-                <li>Applications, interviews and conversion rate per CV.</li>
-              </ul>
-              <div class="project-links"><a href="https://github.com/GhulamMustafa-MS/job-application-tracker" target="_blank" rel="noopener noreferrer">GitHub repository</a></div>
-            </article>
-          </div>
-
-          <div style="margin-top:1.2rem;color:#9ca3af;font-size:0.86rem;">
-            More on <a href="https://github.com/GhulamMustafa-MS" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;text-underline-offset:3px;">GitHub</a>. Currently studying AWS cloud architecture and how retrieval and vector search work in AI apps.
-          </div>
-        </div>
-      </section>
-
-      <section id="how">
-        <div class="container reveal">
-          <div class="section-header">
-            <div class="section-kicker">How I work</div>
-            <h2 class="section-title">AI writes code. I make sure it’s the right code.</h2>
-          </div>
-
-          <div class="skills-grid">
-            <div class="skill-card">
-              <div class="skill-card-header"><div class="skill-card-title">1. Start with the people</div></div>
-              <p style="color:var(--text-muted);">I work out what the users actually need, and write it down as requirements before any code exists.</p>
-            </div>
-            <div class="skill-card">
-              <div class="skill-card-header"><div class="skill-card-title">2. Build in small steps</div></div>
-              <p style="color:var(--text-muted);">AI coding tools write much of the code. I make the design calls and keep each change small enough to understand.</p>
-            </div>
-            <div class="skill-card">
-              <div class="skill-card-header"><div class="skill-card-title">3. Check, then ship</div></div>
-              <p style="color:var(--text-muted);">Tests, audits against the requirements, and real users on a real shift. “No errors” doesn’t mean “working”.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="experience">
-        <div class="container reveal">
-          <div class="section-header">
-            <div class="section-kicker">Experience</div>
-            <h2 class="section-title">Experience</h2>
-          </div>
-
-          <div class="experience-grid">
-            <div>
-              <div class="timeline">
-                <div class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="timeline-role">Head of Kitchen Training — Another Brother</div>
-                  <div class="timeline-meta">Massarella Catering Group · London · Part-time · Nov 2024–present</div>
-                  <div class="timeline-body">
-                    <p>Progressed from Kitchen Assistant to Senior Supervisor to Head of Kitchen Training.</p>
-                    <ul class="project-bullets">
-                      <li>Train branch managers and new hires across the group’s branches to the company’s kitchen standards.</li>
-                      <li>Run kitchen operations during busy service, coordinating the team and keeping hygiene and quality standards.</li>
-                      <li>Offered to help with the company’s tech, which led to the recipe and training app project.</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <div class="xp-card">
-                <div class="xp-card-title">Transferable strengths</div>
-                <p>Experience in a high-pressure environment has strengthened my ability to:</p>
-                <ul style="margin-left:1.1rem;margin-top:0.4rem;">
-                  <li>Communicate clearly and coordinate tasks across a team.</li>
-                  <li>Stay organised and deliver reliably under time constraints.</li>
-                  <li>Troubleshoot issues quickly and keep work moving.</li>
-                </ul>
-
-                <div class="xp-chip-row">
-                  <span class="chip">Team leadership</span>
-                  <span class="chip">Time management</span>
-                  <span class="chip">Problem solving</span>
-                  <span class="chip">Communication</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact">
-        <div class="container reveal">
-          <div class="section-header">
-            <div class="section-kicker">Contact</div>
-            <h2 class="section-title">Contact</h2>
-          </div>
-
-          <div class="contact-grid">
-            <div class="contact-card">
-              <p>
-                I’m looking for 2027 graduate software engineering roles, and I’m always happy to talk about
-                software for small businesses. Reach me by email or LinkedIn.
-              </p>
-
-              <div class="contact-row">
-                <div>
-                  <div class="contact-item-label">Email</div>
-                  <a href="mailto:ghulammustafa99922@gmail.com" class="contact-link">ghulammustafa99922@gmail.com</a>
-                </div>
-
-                <div>
-                  <div class="contact-item-label">GitHub</div>
-                  <a href="https://github.com/GhulamMustafa-MS" target="_blank" rel="noopener noreferrer" class="contact-link">
-                    github.com/GhulamMustafa-MS
-                  </a>
-                </div>
-
-                <div>
-                  <div class="contact-item-label">LinkedIn</div>
-                  <a href="https://linkedin.com/in/ghulam-mustafa-41807b281" target="_blank" rel="noopener noreferrer" class="contact-link">
-                    linkedin.com/in/ghulam-mustafa-41807b281
-                  </a>
-                </div>
-
-                <div>
-                  <div class="contact-item-label">Location</div>
-                  <span class="contact-link">London, United Kingdom</span>
-                </div>
-              </div>
-
-              <p style="margin-top:0.8rem;font-size:0.8rem;color:#9ca3af;">
-                For project enquiries, tell me about the problem and who it’s for.
-              </p>
-            </div>
-
-            <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
-              <input type="hidden" name="access_key" value="8a05d651-0589-4426-a3cd-dbaa950a33c0">
-              <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
-
-              <div class="form-field">
-                <label class="form-label" for="name">Name</label>
-                <input id="name" name="name" autocomplete="name" class="form-input" type="text" required />
-              </div>
-
-              <div class="form-field">
-                <label class="form-label" for="email">Email</label>
-                <input id="email" name="email" autocomplete="email" class="form-input" type="email" required />
-              </div>
-
-              <div class="form-field">
-                <label class="form-label" for="message">Message</label>
-                <textarea id="message" name="message" class="form-textarea" required></textarea>
-              </div>
-
-              <button type="submit" class="btn-primary form-submit">Send message</button>
-            </form>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="container">
-        <div class="footer-inner">
-          <span>© <span id="year">2026</span> Ghulam Mustafa. All rights reserved.</span>
-          <div class="footer-links">
-            <a href="#home" data-scroll="#home">Back to top</a>
-          </div>
-        </div>
-      </div>
-    </footer>
+<main id="main">
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <p class="hi">hi, I'm Mustafa</p>
+    <h1 id="hero-title">I build software for the people behind the counter.</h1>
+    <p class="lede">Final-year BSc Computing Systems student at Ulster University London, open to 2027 graduate software and backend roles. AI writes a lot of my code. I decide what gets built, test it with real staff and make sure it's safe and correct.</p>
+    <div class="btns">
+      <a class="btn solid" href="#work">See the work</a>
+      <a class="btn" href="#contact">Say hello</a>
+    </div>
   </div>
 
-  <script>
-    const navToggle = document.getElementById('navToggle');
-    const navLinksMobile = document.getElementById('navLinksMobile');
-    function closeMenu() {
-      navLinksMobile.classList.remove('nav-mobile-visible');
-      navToggle.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
-    }
-    navToggle.addEventListener('click', () => {
-      const open = navToggle.getAttribute('aria-expanded') !== 'true';
-      navToggle.classList.toggle('open', open);
-      navLinksMobile.classList.toggle('nav-mobile-visible', open);
-      navToggle.setAttribute('aria-expanded', String(open));
-    });
-    navLinksMobile.addEventListener('click', (event) => {
-      if (event.target.closest('a')) closeMenu();
-    });
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
-        closeMenu();
-        navToggle.focus();
-      }
-    });
-    document.querySelectorAll('button[data-scroll]').forEach(button => {
-      button.addEventListener('click', () => {
-        window.location.hash = button.dataset.scroll;
-      });
-    });
-    window.matchMedia('(min-width: 721px)').addEventListener('change', closeMenu);
-    document.documentElement.classList.remove('no-js');
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <figure class="receipt" aria-label="Receipt listing my skills">
+    <p class="head">MUSTAFA'S KITCHEN</p>
+    <p class="sub">LONDON · EST. 2024 · ORDER #2027</p>
+    <hr class="cut">
+    <ul>
+      <li class="line"><span>1x Python</span><svg class="tick" viewBox="0 0 16 16" aria-label="done" role="img"><path d="M2.5 8.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></li>
+      <li class="line"><span>1x FastAPI</span><svg class="tick" viewBox="0 0 16 16" aria-label="done" role="img"><path d="M2.5 8.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></li>
+      <li class="line"><span>1x PostgreSQL</span><svg class="tick" viewBox="0 0 16 16" aria-label="done" role="img"><path d="M2.5 8.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></li>
+      <li class="line"><span>1x AWS (studying)</span><span aria-label="in progress">…</span></li>
+      <li class="line"><span>2x Apps in real use</span><svg class="tick" viewBox="0 0 16 16" aria-label="done" role="img"><path d="M2.5 8.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></li>
+    </ul>
+    <hr class="cut">
+    <div class="line status"><span>STATUS</span><span>OPEN TO HIRE</span></div>
+    <p class="thanks">thank you, come again!</p>
+  </figure>
+</section>
+
+<section class="section" id="work" aria-labelledby="work-title">
+  <h2 class="section-title" id="work-title">What's on the pass</h2>
+
+  <article class="ticket feature" aria-labelledby="amigos-title">
+    <div class="ticket-body">
+      <div class="ticket-top"><span>ORDER #01</span><span class="stamp live">LIVE</span></div>
+      <h3 id="amigos-title">Amigos Orders</h3>
+      <p class="desc">A stock and ordering app I built for my client Amigos Burgers &amp; Shakes. Staff at the Harrow branch count stock and build supplier orders on their phones, and more branches are planned.</p>
+      <dl class="stats">
+        <div><dt>Ordering time</dt><dd>15-20 min → ~5</dd></div>
+        <div><dt>Suppliers</dt><dd>8</dd></div>
+        <div><dt>Food-safety checks</dt><dd>Built</dd></div>
+        <div><dt>Phone reminders</dt><dd>Built</dd></div>
+        <div><dt>Automated tests</dt><dd>197</dd></div>
+      </dl>
+      <p class="mono" style="margin:0;font-size:13px;color:var(--faint)">Python · FastAPI · PostgreSQL · Vercel</p>
+      <p class="note">cut ordering to about 5 minutes ↗</p>
+    </div>
+    <div class="tray">
+      <ul class="phones" aria-label="Amigos Orders screenshots, demo data">
+        <li><div class="phone"><img src="/img/amigos-suppliers.webp" width="540" height="1169" loading="lazy" decoding="async" alt="Supplier list: Booker, Glenfields, D and L, Amigo Store, DIBS, Star, Fresh Union and Environmental Packaging."></div><span class="cap">Suppliers</span></li>
+        <li><div class="phone"><img src="/img/amigos-count.webp" width="540" height="1169" loading="lazy" decoding="async" alt="Stock count screen: for each item, what we have on the shelf and how many to order, with 40 of 55 items counted."></div><span class="cap">Stock count</span></li>
+        <li><div class="phone"><img src="/img/amigos-order.webp" width="540" height="1169" loading="lazy" decoding="async" alt="Order check screen: each line shows the app's suggested amount next to the staff amount."></div><span class="cap">Order</span></li>
+      </ul>
+    </div>
+  </article>
+
+  <div class="pair">
+    <article class="ticket" aria-labelledby="kartak-title">
+      <div class="ticket-body">
+        <div class="ticket-top"><span>ORDER #02</span><span class="stamp live">LIVE</span></div>
+        <h3 id="kartak-title">Kartak</h3>
+        <p class="desc">Food-safety exam practice for food workers in Saudi Arabia. One Saudi restaurant pays for it for its staff.</p>
+        <dl class="stats">
+          <div><dt>Languages</dt><dd>11 (incl. Arabic, Urdu)</dd></div>
+          <div><dt>Right to left</dt><dd>Arabic, Urdu</dd></div>
+          <div><dt>Offline</dt><dd>Yes</dd></div>
+          <div><dt>Results dashboard</dt><dd>Yes</dd></div>
+          <div><dt>Automated tests</dt><dd>154</dd></div>
+        </dl>
+        <div class="shots">
+          <ul class="phones" aria-label="Kartak screenshots, demo data">
+            <li><div class="phone"><img src="/img/kartak-quiz.webp" width="540" height="1169" loading="lazy" decoding="async" alt="Practice question in English with the answer explained."></div><span class="cap">Quiz</span></li>
+            <li><div class="phone"><img src="/img/kartak-arabic.webp" width="540" height="1169" loading="lazy" decoding="async" alt="The same app in Arabic, laid out right to left."></div><span class="cap">Arabic</span></li>
+            <li><div class="phone"><img src="/img/kartak-dashboard.webp" width="540" height="1169" loading="lazy" decoding="async" alt="Results dashboard with tests taken, average score and who is ready for the exam, for demo users."></div><span class="cap">Results</span></li>
+          </ul>
+        </div>
+        <p class="note">11 languages, right to left too</p>
+      </div>
+    </article>
+
+    <article class="ticket fyp" aria-labelledby="fyp-title">
+      <div class="ticket-body">
+        <div class="ticket-top"><span>ORDER #03</span><span class="stamp cooking">COOKING</span></div>
+        <p class="kicker">Final-year project</p>
+        <h3 id="fyp-title">Predicting and Preventing Perishable Food Waste in Hospitality with Machine Learning</h3>
+        <p class="desc">A system that predicts which perishable stock in a hospitality business is likely to go to waste and suggests what to order and promote.</p>
+        <dl class="stats">
+          <div><dt>Industry partner</dt><dd>growyze</dd></div>
+        </dl>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section about" id="about" aria-labelledby="about-title">
+  <h2 id="about-title">Jeddah, then Gujranwala, now London. Always building something.</h2>
+  <div class="about-copy">
+    <p class="placeholder">[About me: 2-3 lines from Mustafa go here.]</p>
+    <p class="fine">BSc (Hons) Computing Systems, Ulster University London, graduating 2027<br>Dean's List, Year 1 · BCS student member</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="contact" id="contact">
+    <h2>hiring for 2027? let's talk</h2>
+    <div class="links">
+      <a href="mailto:ghulammustafa99922@gmail.com">EMAIL</a>
+      <a href="https://www.linkedin.com/in/ghulam-mustafa-41807b281/" rel="noopener">LINKEDIN</a>
+      <a href="https://github.com/GhulamMustafa-MS" rel="noopener">GITHUB</a>
+    </div>
+  </div>
+  <p class="foot">© 2026 Ghulam Mustafa · London · Screenshots use demo data.</p>
+</footer>
+
+</div>
 </body>
 </html>
