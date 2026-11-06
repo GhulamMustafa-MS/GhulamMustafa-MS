@@ -143,6 +143,21 @@ h1{margin:0;font-size:clamp(40px,7.2vw,58px);line-height:1.05;font-weight:600;le
 .links{display:flex;flex-wrap:wrap;gap:12px 24px;font-family:var(--mono);font-size:15px}
 .foot{padding:0 0 48px;font-family:var(--mono);font-size:12px;color:var(--faint)}
 
+
+/* demo video */
+.demo{grid-column:1/-1;border-top:1.5px solid var(--ink);padding:28px 36px 32px;display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:28px;align-items:center}
+.demo .label{display:flex;flex-direction:column;gap:10px}
+.demo .label .note{font-size:28px}
+.demo .label .mono{margin:0;font-size:13px;color:var(--faint)}
+.demo video{width:100%;height:auto;aspect-ratio:16/9;display:block;border:1.5px solid var(--ink);border-radius:6px;background:var(--tray)}
+.demo .v9{display:none;max-width:260px;aspect-ratio:9/16;margin:0 auto}
+@media (min-width:641px){.feature{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media (max-width:640px){
+  .demo{grid-template-columns:1fr;padding:24px;gap:16px}
+  .demo .v16{display:none}
+  .demo .v9{display:block}
+}
+
 @media (max-width:640px){
   .top{padding:20px 0}
   .hero{padding:40px 0 72px;gap:48px}
@@ -227,6 +242,19 @@ h1{margin:0;font-size:clamp(40px,7.2vw,58px);line-height:1.05;font-weight:600;le
         <li><div class="phone"><img src="/img/amigos-approval.webp" width="540" height="1169" loading="lazy" decoding="async" alt="Manager's Today screen: one list from a team member waiting to be approved."></div><span class="cap">Approval</span></li>
         <li><div class="phone"><img src="/img/amigos-order.webp" width="540" height="1169" loading="lazy" decoding="async" alt="Order check screen: each line shows the app's suggested amount next to the staff amount."></div><span class="cap">Order</span></li>
       </ul>
+    </div>
+  
+    <div class="demo">
+      <div class="label">
+        <p class="note">watch it in action ↘</p>
+        <p class="mono">72-second walkthrough · count, approve, order, food-safety checks · demo data</p>
+      </div>
+      <video class="v16" controls preload="none" playsinline poster="/video/amigos-demo-16x9-poster.webp" width="1920" height="1080" aria-label="Amigos Orders demo video, landscape">
+        <source src="/video/amigos-demo-16x9.mp4" type="video/mp4">
+      </video>
+      <video class="v9" controls preload="none" playsinline poster="/video/amigos-demo-9x16-poster.webp" width="1080" height="1920" aria-label="Amigos Orders demo video, portrait">
+        <source src="/video/amigos-demo-9x16.mp4" type="video/mp4">
+      </video>
     </div>
   </article>
 
